@@ -170,3 +170,4 @@ xcuserdata
 #Carthage
 Carthage/Checkouts
 demo/Carthage/Checkouts
+demo/Pods
