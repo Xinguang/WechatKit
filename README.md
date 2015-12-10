@@ -5,6 +5,11 @@
 
 ---
 ##Getting Started
+- CocoaPods
+
+```ogdl
+pod 'WechatKit'
+```
 
 - Carthage
 
