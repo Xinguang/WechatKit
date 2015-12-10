@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "0.0.1"
   s.summary          = "一款快速实现微信认证的framework written in Swift"
   s.homepage         = "https://github.com/starboychina/WechatKit"
-  s.license          = 'MIT'
+  s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "starboychina" => "wechatkit.github.com@kansea.com" }
   s.source           = { :git => "https://github.com/starboychina/WechatKit.git", :tag => s.version.to_s }
   s.platform     = :ios, '8.0'
