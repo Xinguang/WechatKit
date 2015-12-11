@@ -1,5 +1,6 @@
 #WechatKit
 
+[![Build Status](https://travis-ci.org/starboychina/WechatKit.svg)](https://travis-ci.org/starboychina/WechatKit)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![GitHub release](https://img.shields.io/github/release/starboychina/WechatKit.svg)](https://github.com/starboychina/WechatKit/releases)
 
