@@ -15,17 +15,17 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.0.1</string>
+	<string>0.0.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>wechat</string>
+		<string>weixin</string>
+	</array>
 	<key>NSPrincipalClass</key>
 	<string></string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>wechat</string>
-        <string>weixin</string>
-    </array>
 </dict>
 </plist>

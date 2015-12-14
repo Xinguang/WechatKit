@@ -8,7 +8,9 @@
 
 // MARK: - public
 extension WechatManager {
-    
+    /**
+     微信认证
+     */
     public func checkAuth() {
         
         if (!WXApi.isWXAppInstalled()) {
@@ -96,10 +98,6 @@ extension WechatManager {
     
     private func checkTokenInServer(checkByAppIfNeeded: ()->()) {
         
-        var params = Dictionary<String, AnyObject>()
-        params["openid"] = WechatManager.openid
-        params["access_token"] = WechatManager.access_token
-        
         let authCheckCompletion: ((res: AnyObject?, errCode:Int?) -> ()) = { (res, errCode) -> () in
             
             if let res = res {
@@ -118,20 +116,15 @@ extension WechatManager {
             } else if errCode == 404 {
                 
                 self.getUserInfo { userInfo in
-                    //sign up
-                    params["os"] = UIDevice.currentDevice().systemName
-                    params["version"] = UIDevice.currentDevice().systemVersion
-                    params["model"] = UIDevice.currentDevice().model
-                    params["userinfo"] = userInfo
-                    
-                    self.authDelegate.signupIfNeeded(params, completion: self.authDelegate.success)
+                    //sign up                    
+                    self.authDelegate.signupIfNeeded(userInfo, completion: self.authDelegate.success)
                 }
             } else {
                 self.authDelegate.failure(errCode)
             }
         }
         
-        let checked = self.authDelegate.checkIfNeeded(params, completion: authCheckCompletion) ?? false
+        let checked = self.authDelegate.checkIfNeeded(authCheckCompletion) ?? false
         
         if !checked {
             checkByAppIfNeeded()

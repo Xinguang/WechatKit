@@ -8,11 +8,9 @@
 
 public protocol WechatManagerAuthDelegate {
     /**
-     
      如果需要服务器端再次认证时设置该方法
-     (服务器端认证openid 及accesstoken,并根据openid取得自己系统的用户信息)
+     (服务器端认证WechatManager.openid 及WechatManager.accesstoken,并根据WechatManager.openid取得自己系统的用户信息)
      
-     - parameter parameters: ["openid": WechatManager.openid, "access_token": WechatManager.access_token]
      - parameter completion: 如果被调用,则返回继续执行认证处理
      当res(自己系统的用户信息)不为空时,直接调用 success
      当 errCode 为401时, 则重新回去accesstoken, 获取成功 则直接调用 success
@@ -22,18 +20,11 @@ public protocol WechatManagerAuthDelegate {
      如果实现了该方法, 需要return true;
      如果return false; 除上述调用success以外,还会在执行一次success(微信用户基本信息)
      */
-    func checkIfNeeded(parameters: [String : AnyObject], completion: ((res: AnyObject?, errCode: Int?) -> ())) -> Bool
+    func checkIfNeeded(completion: ((res: AnyObject?, errCode: Int?) -> ())) -> Bool
     /**
      如果用户在你的系统中不存在, 并希望能实现自动注册时,通过该方法实现 * 需要实现checkIfNeeded
      
-     - parameter parameters: [
-     "openid": WechatManager.openid,
-     "access_token": WechatManager.access_token,
-     "os": UIDevice.currentDevice().systemName,
-     "version": UIDevice.currentDevice().systemVersion,
-     "model": UIDevice.currentDevice().model
-     "userinfo": 微信用户的基本信息
-     ]
+     - parameter parameters: 从微信取得的用户的基本信息
      - parameter completion: 如果被调用,则返回继续执行 success(res)
      */
     func signupIfNeeded(parameters: [String : AnyObject], completion: ((res: AnyObject) -> ()))
@@ -57,8 +48,8 @@ public protocol WechatManagerAuthDelegate {
 
 extension WechatManagerAuthDelegate {
     //auth
-    public func checkIfNeeded(parameters: [String : AnyObject], completion: ((res: AnyObject?, errCode:Int?) -> ())) -> Bool {
-        print(parameters)
+    public func checkIfNeeded(completion: ((res: AnyObject?, errCode:Int?) -> ())) -> Bool {
+        print("openid: \(WechatManager.openid) access_token: \(WechatManager.access_token)")
         return false
     }
     

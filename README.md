@@ -88,7 +88,7 @@ github "starboychina/WechatKit"
 [认证Delegation](https://github.com/starboychina/WechatKit/blob/master/WechatKit/WechatManagerAuthDelegate.swift)
 
 ```swift
-    func checkIfNeeded(parameters: [String : AnyObject], completion: ((res: AnyObject?, errCode: Int?) -> ())) -> Bool
+    func checkIfNeeded(completion: ((res: AnyObject?, errCode: Int?) -> ())) -> Bool
 
     func signupIfNeeded(parameters: [String : AnyObject], completion: ((res: AnyObject) -> ()))
 
