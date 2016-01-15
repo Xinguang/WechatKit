@@ -20,6 +20,11 @@ public protocol WechatManagerShareDelegate {
 }
 
 extension WechatManagerAuthDelegate {
+    /**
+     Default Implementation
+     
+     - parameter message: message description
+     */
     public func showMessage(message: String) { print(message) }
 }
 

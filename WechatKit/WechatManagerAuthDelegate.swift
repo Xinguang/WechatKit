@@ -5,7 +5,9 @@
 //  Created by starboychina on 2015/12/03.
 //  Copyright © 2015年 starboychina. All rights reserved.
 //
-
+/**
+*  Auth
+*/
 public protocol WechatManagerAuthDelegate {
     /**
      如果需要服务器端再次认证时设置该方法
@@ -47,11 +49,22 @@ public protocol WechatManagerAuthDelegate {
 }
 
 extension WechatManagerAuthDelegate {
-    //auth
+    /**
+     Default Implementation
+     
+     - parameter completion: completion description
+     
+     - returns: false
+     */
     public func checkIfNeeded(completion: ((res: AnyObject?, errCode:Int?) -> ())) -> Bool {
         print("openid: \(WechatManager.openid) access_token: \(WechatManager.access_token)")
         return false
     }
-    
+    /**
+     Default Implementation
+     
+     - parameter parameters: parameters
+     - parameter completion: completion
+     */
     public func signupIfNeeded(parameters: [String : AnyObject], completion: ((res: AnyObject) -> ())) { print(parameters) }
 }

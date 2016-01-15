@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 
+/// WechatManager
 public class WechatManager: NSObject {
     /// 微信开放平台,注册的应用程序id
     public static var appid: String! {
