@@ -75,6 +75,17 @@ github "starboychina/WechatKit"
         }
     }
 ```
+- 获取微信用户信息
+```swift
+  WechatManager.sharedInstance.getUserInfo { result in
+      switch result {
+      case .Failure(let errCode):
+          print(errCode)
+      case .Success(let value):
+          print(value)
+      }
+  }
+```
 
 - 分享到微信
 
