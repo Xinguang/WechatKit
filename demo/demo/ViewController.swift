@@ -19,6 +19,25 @@ class ViewController: UIViewController {
         self.setupWechatManager()
     }
 
+    @IBAction func getUserInfo(sender: AnyObject) {
+        guard let openid = WechatManager.openid else {
+            print("还没有登录")
+            return
+        }
+        
+        guard openid.characters.count > 0 else {
+            print("还没有登录,或openid没有正确设置")
+            return
+        }
+        WechatManager.sharedInstance.getUserInfo { result in
+            switch result {
+            case .Failure(let errCode):
+                print(errCode)
+            case .Success(let value):
+                print(value)
+            }
+        }
+    }
     /**
      登录
      

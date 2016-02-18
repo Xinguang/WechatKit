@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pod" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,15 +32,24 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZ1-ge-hJi">
-                                <rect key="frame" x="285" y="335" width="30" height="30"/>
+                                <rect key="frame" x="255" y="335" width="90" height="30"/>
+                                <state key="normal" title="获取用户信息"/>
+                                <connections>
+                                    <action selector="getUserInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DiF-Qi-GN9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOP-hi-LEs">
+                                <rect key="frame" x="285" y="385" width="30" height="30"/>
                                 <state key="normal" title="分享"/>
                                 <connections>
-                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9GJ-o5-5zO"/>
+                                    <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FWU-Tp-F1t"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NOP-hi-LEs" firstAttribute="top" secondItem="pZ1-ge-hJi" secondAttribute="bottom" constant="20" id="CYq-Rk-Jd2"/>
+                            <constraint firstItem="NOP-hi-LEs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Heb-mX-cnt"/>
                             <constraint firstItem="pZ1-ge-hJi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L5r-Bw-qZv"/>
                             <constraint firstItem="FH6-R6-FQK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n3y-7Z-jzF"/>
                             <constraint firstItem="FH6-R6-FQK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oux-Sw-Dx7"/>
