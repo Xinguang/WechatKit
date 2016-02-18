@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1763B3521C75E60500E5FB69 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1763B3511C75E60500E5FB69 /* Result.swift */; };
 		D07213F41C0EE8ED009E0DEA /* WechatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D07213F31C0EE8ED009E0DEA /* WechatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D07214011C0EE8FA009E0DEA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D07213FC1C0EE8FA009E0DEA /* libWeChatSDK.a */; };
 		D07214021C0EE8FA009E0DEA /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = D07213FD1C0EE8FA009E0DEA /* read_me.txt */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1763B3511C75E60500E5FB69 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D07213F01C0EE8ED009E0DEA /* WechatKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WechatKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D07213F31C0EE8ED009E0DEA /* WechatKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WechatKit.h; sourceTree = "<group>"; };
 		D07213F51C0EE8ED009E0DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				D07213F51C0EE8ED009E0DEA /* Info.plist */,
 				D07214111C0EE993009E0DEA /* WechatManager.swift */,
 				D0EBCBF91C0FD94800A0787B /* WechatRoute.swift */,
+				1763B3511C75E60500E5FB69 /* Result.swift */,
 			);
 			path = WechatKit;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				D0EBCC081C104B0C00A0787B /* WechatShare.swift in Sources */,
 				D07214121C0EE993009E0DEA /* WechatManager.swift in Sources */,
 				D088F9AF1C180DB6004EC3D6 /* WechatManagerShareDelegate.swift in Sources */,
+				1763B3521C75E60500E5FB69 /* Result.swift in Sources */,
 				D0EBCC041C104A6000A0787B /* WechatAuth.swift in Sources */,
 				D0EBCBFA1C0FD94800A0787B /* WechatRoute.swift in Sources */,
 			);

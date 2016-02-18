@@ -60,10 +60,16 @@ github "starboychina/WechatKit"
 ```swift
   WechatManager.sharedInstance.isInstalled()
 ```
-- 使用微信认证
+- 使用微信登录
 ```swift
-  WechatManager.sharedInstance.authDelegate = self
-  WechatManager.sharedInstance.checkAuth()
+    WechatManager.sharedInstance.checkAuth { result in
+        switch result {
+        case .Failure(let errCode)://登录失败
+            print(errCode)
+        case .Success(let value)://登录成功 value为返回的openid access_token 以及 refresh_token
+            print(value)
+        }
+    }
 ```
 
 - 分享到微信
@@ -84,21 +90,10 @@ github "starboychina/WechatKit"
 ```
 
 - Delegation
--
-[认证Delegation](https://github.com/starboychina/WechatKit/blob/master/WechatKit/WechatManagerAuthDelegate.swift)
-
-```swift
-    func checkIfNeeded(completion: ((res: AnyObject?, errCode: Int?) -> ())) -> Bool
-
-    func signupIfNeeded(parameters: [String : AnyObject], completion: ((res: AnyObject) -> ()))
-
-    func success(res: AnyObject)
-
-    func failure(errCode: Int)
-```
 
 [分享Delegation](https://github.com/starboychina/WechatKit/blob/master/WechatKit/WechatManagerShareDelegate.swift)
 
 ```swift
+    //app分享后 点击分享返回时调用
     func showMessage(message: String)
 ```

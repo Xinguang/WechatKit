@@ -68,7 +68,7 @@ class AlamofireController {
                 completion(result: result)
             } else {
                 let statusCode = res.response?.statusCode ?? badRequestCode
-                WechatManager.sharedInstance.authDelegate.failure(statusCode)
+                WechatManager.sharedInstance.completionHandler?(.Failure(Int32(statusCode)))
             }
         }
     }

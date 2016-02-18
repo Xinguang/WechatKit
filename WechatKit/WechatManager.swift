@@ -11,6 +11,15 @@ import Alamofire
 
 /// WechatManager
 public class WechatManager: NSObject {
+    /// It use to store openid, access_token, refresh_token
+    private static let Defaults = NSUserDefaults.standardUserDefaults()
+    
+    /// A closure used to receive and process request from Third-party
+    public typealias AuthHandle = (Result<[String: AnyObject] , Int32>) -> ()
+    
+    /// A closure used to receive and process request from Wechat
+    var completionHandler: AuthHandle!
+    
     /// 微信开放平台,注册的应用程序id
     public static var appid: String! {
         didSet {
@@ -20,21 +29,36 @@ public class WechatManager: NSObject {
     /// 微信开放平台,注册的应用程序Secret
     public static var appSecret: String!
     /// openid
-    public static var openid: String!
+    public static var openid: String! {
+        didSet{
+            Defaults.setObject(self.openid, forKey: "wechatkit_openid")
+            Defaults.synchronize()
+        }
+    }
     /// access token
-    public static var access_token: String!
+    public static var access_token: String! {
+        didSet{
+            Defaults.setObject(self.access_token, forKey: "wechatkit_access_token")
+            Defaults.synchronize()
+        }
+    }
     /// refresh token
-    public static var refresh_token: String!
+    public static var refresh_token: String! {
+        didSet{
+            Defaults.setObject(self.refresh_token, forKey: "wechatkit_refresh_token")
+            Defaults.synchronize()
+        }
+    }
     /// csrf
     public static var csrf_state = "73746172626f796368696e61"
-    /// 认证Delegation
-    public var authDelegate: WechatManagerAuthDelegate!
     /// 分享Delegation
     public var shareDelegate: WechatManagerShareDelegate?
     /// A shared instance
     public static let sharedInstance: WechatManager = {
         let instalce = WechatManager()
-        instalce.authDelegate = instalce
+        openid = Defaults.stringForKey("wechatkit_openid")
+        access_token = Defaults.stringForKey("wechatkit_access_token")
+        refresh_token = Defaults.stringForKey("wechatkit_refresh_token")
         return WechatManager()
     }()
     
@@ -92,31 +116,9 @@ extension WechatManager: WXApiDelegate {
             if (0 == temp.errCode && WechatManager.csrf_state == temp.state) {
                 self.getAccessToken(temp.code)
             } else {
-                self.authDelegate.failure(Int(temp.errCode))
+                completionHandler(.Failure(WXErrCodeCommon.rawValue))
             }
         }
     }
     
-}
-
-// MARK: - WechatManagerDelegate
-// MARK: - 默认处理 -> 没设置authDelegate时的默认处理
-extension WechatManager: WechatManagerAuthDelegate {
-    /**
-     微信认证成功
-     
-     - parameter res: 用户信息
-     */
-    public func success(res: AnyObject){
-        print(res)
-    }
-    /**
-     微信认证失败
-     
-     - parameter errCode: 返回认证错误码
-     详见 https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318634&token=&lang=zh_CN
-     */
-    public func failure(errCode: Int){
-        print(errCode)
-    }
 }

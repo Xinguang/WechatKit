@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,11 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9y-Ka-5d2">
+                                <rect key="frame" x="285" y="235" width="30" height="30"/>
+                                <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zhz-mY-pUm"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FH6-R6-FQK">
                                 <rect key="frame" x="285" y="285" width="30" height="30"/>
-                                <state key="normal" title="认证"/>
+                                <state key="normal" title="退出"/>
                                 <connections>
-                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vd-6p-XqM"/>
+                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KSh-g5-Euv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZ1-ge-hJi">
@@ -37,6 +44,8 @@
                             <constraint firstItem="pZ1-ge-hJi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L5r-Bw-qZv"/>
                             <constraint firstItem="FH6-R6-FQK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n3y-7Z-jzF"/>
                             <constraint firstItem="FH6-R6-FQK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oux-Sw-Dx7"/>
+                            <constraint firstItem="FH6-R6-FQK" firstAttribute="top" secondItem="D9y-Ka-5d2" secondAttribute="bottom" constant="20" id="pRr-8S-nyc"/>
+                            <constraint firstItem="D9y-Ka-5d2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qKL-ix-and"/>
                             <constraint firstItem="pZ1-ge-hJi" firstAttribute="top" secondItem="FH6-R6-FQK" secondAttribute="bottom" constant="20" id="tdn-Ib-9BW"/>
                         </constraints>
                     </view>
