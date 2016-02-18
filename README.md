@@ -26,9 +26,11 @@ github "starboychina/WechatKit"
 
     在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你在微信开放平台,注册的应用程序id
 
-- IOS9以后 需要添加weixin到白名单
+[![Setting](demo/setting.png)]
 
-    添加以下内容到info.plist
+- IOS9以后 需要添加weixin到白名单(如图)
+
+    或以源代码方式打开info.plist, 并添加以下内容.
 ```xml
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
@@ -36,6 +38,8 @@ github "starboychina/WechatKit"
 		<string>weixin</string>
 	</array>
 ```
+[![Setting](demo/info.plist.png)]
+
 - 重写AppDelegate的handleOpenURL和openURL方法：
 
     在AppDelegate.swift中添加import WechatKit
