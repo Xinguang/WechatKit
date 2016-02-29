@@ -10,7 +10,6 @@
 		1763B3521C75E60500E5FB69 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1763B3511C75E60500E5FB69 /* Result.swift */; };
 		D07213F41C0EE8ED009E0DEA /* WechatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D07213F31C0EE8ED009E0DEA /* WechatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D07214011C0EE8FA009E0DEA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D07213FC1C0EE8FA009E0DEA /* libWeChatSDK.a */; };
-		D07214021C0EE8FA009E0DEA /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = D07213FD1C0EE8FA009E0DEA /* read_me.txt */; };
 		D07214031C0EE8FA009E0DEA /* WechatAuthSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = D07213FE1C0EE8FA009E0DEA /* WechatAuthSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D07214041C0EE8FA009E0DEA /* WXApi.h in Headers */ = {isa = PBXBuildFile; fileRef = D07213FF1C0EE8FA009E0DEA /* WXApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D07214051C0EE8FA009E0DEA /* WXApiObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D07214001C0EE8FA009E0DEA /* WXApiObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -212,7 +211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D07214021C0EE8FA009E0DEA /* read_me.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
