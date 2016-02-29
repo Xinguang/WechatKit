@@ -40,7 +40,7 @@ github "starboychina/WechatKit"
 ```
 [![Setting](demo/info.plist.png)]
 
-- 重写AppDelegate的handleOpenURL和openURL方法：
+- AppDelegate的handleOpenURL和openURL方法：
 
     在AppDelegate.swift中添加import WechatKit
 
@@ -50,7 +50,9 @@ github "starboychina/WechatKit"
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return WechatManager.sharedInstance.handleOpenURL(url)
+        return WechatManager.sharedInstance.handleOpenURL(url) 
+        // 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL
+        // return WechatManager.sharedInstance.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.sharedInstance) ......
     }
 ```
 
