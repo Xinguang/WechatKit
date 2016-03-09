@@ -26,7 +26,7 @@ github "starboychina/WechatKit"
 
     在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你在微信开放平台,注册的应用程序id
 
-[![Setting](demo/setting.png)]
+![Setting](demo/setting.png)
 
 - IOS9以后 需要添加weixin到白名单(如图)
 
@@ -38,7 +38,7 @@ github "starboychina/WechatKit"
 		<string>weixin</string>
 	</array>
 ```
-[![Setting](demo/info.plist.png)]
+![Setting](demo/info.plist.png)
 
 - AppDelegate的handleOpenURL和openURL方法：
 
@@ -67,12 +67,14 @@ github "starboychina/WechatKit"
   WechatManager.sharedInstance.isInstalled()
 ```
 - 使用微信登录
+
+    默认会记住openid,以及access_token,在token还在有效期时,调用checkAuth则不会打开微信客户端,直接使用token和微信服务器获取认证信息
 ```swift
     WechatManager.sharedInstance.checkAuth { result in
         switch result {
         case .Failure(let errCode)://登录失败
             print(errCode)
-        case .Success(let value)://登录成功 value为返回的openid access_token 以及 refresh_token
+        case .Success(let value)://登录成功 value为([String: String]) 微信返回的openid access_token 以及 refresh_token
             print(value)
         }
     }
@@ -81,13 +83,21 @@ github "starboychina/WechatKit"
 ```swift
   WechatManager.sharedInstance.getUserInfo { result in
       switch result {
-      case .Failure(let errCode):
+      case .Failure(let errCode)://获取失败
           print(errCode)
-      case .Success(let value):
+      case .Success(let value)://获取成功 value为([String: String]) 微信用户基本信息
           print(value)
       }
   }
 ```
+- 退出登录
+
+    由于默认会记住openid,以及access_token,如需要切换用户则需要退出登录.
+```swift
+WechatManager.sharedInstance.logout()
+```
+
+---
 
 - 分享到微信
 
