@@ -71,8 +71,8 @@ extension WechatManager {
         if description.characters.count > 128 {
             
             let startIndex = description.startIndex
-            let range = Range(start: startIndex.advancedBy(0), end: startIndex.advancedBy(128))
-            message.description = description[range]
+            let range = startIndex.advancedBy(0)..<startIndex.advancedBy(128)
+            message.description = description.substringWithRange(range)
         } else {
             message.description = description
         }
@@ -92,8 +92,8 @@ extension WechatManager {
         if title.characters.count > 64 {
             
             let startIndex = title.startIndex
-            let range = Range(start: startIndex.advancedBy(0), end: startIndex.advancedBy(64))
-            message.title = title[range]
+            let range = startIndex.advancedBy(0)..<startIndex.advancedBy(64)
+            message.title = title.substringWithRange(range)
         } else {
             message.title = title
         }
