@@ -1,7 +1,10 @@
 #WechatKit
 
 [![Build Status](https://travis-ci.org/starboychina/WechatKit.svg)](https://travis-ci.org/starboychina/WechatKit)
+[![Swift version](https://img.shields.io/badge/swift-2.2-orange.svg)](https://developer.apple.com/swift/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-Compatible-4BC51D.svg?style=flat)](https://cocoapods.org/pods/Luminescence)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://tldrlegal.com/license/mit-license)
 [![GitHub release](https://img.shields.io/github/release/starboychina/WechatKit.svg)](https://github.com/starboychina/WechatKit/releases)
 
 ---
@@ -50,7 +53,7 @@ github "starboychina/WechatKit"
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return WechatManager.sharedInstance.handleOpenURL(url) 
+        return WechatManager.sharedInstance.handleOpenURL(url)
         // 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL
         // return WechatManager.sharedInstance.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.sharedInstance) ......
     }
