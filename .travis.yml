@@ -13,7 +13,7 @@ install: carthage bootstrap --platform ios
 
 script:
   - xctool -scheme WechatKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  - pod lib lint
+  - pod lib lint --allow-warnings
 #  - cd demo
 #  - carthage update --platform ios
 #  - xctool -project carthage.xcodeproj -scheme demo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
