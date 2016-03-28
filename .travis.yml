@@ -5,7 +5,7 @@ xcode_sdk: iphonesimulator8.0
 xcode_scheme: WechatKit
 
 before_install:
-  - brew upgrade carthage
+#  - brew upgrade carthage
 #  - brew update
 #  - brew install carthage
 #  - gem install cocoapods
