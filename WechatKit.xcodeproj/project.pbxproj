@@ -22,7 +22,6 @@
 		D088F9AF1C180DB6004EC3D6 /* WechatManagerShareDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D088F9AE1C180DB6004EC3D6 /* WechatManagerShareDelegate.swift */; };
 		D0EBCBFA1C0FD94800A0787B /* WechatRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCBF91C0FD94800A0787B /* WechatRoute.swift */; };
 		D0EBCC041C104A6000A0787B /* WechatAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCC031C104A6000A0787B /* WechatAuth.swift */; };
-		D0EBCC061C104A7E00A0787B /* WechatManagerAuthDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCC051C104A7E00A0787B /* WechatManagerAuthDelegate.swift */; };
 		D0EBCC081C104B0C00A0787B /* WechatShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCC071C104B0C00A0787B /* WechatShare.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +44,6 @@
 		D088F9AE1C180DB6004EC3D6 /* WechatManagerShareDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatManagerShareDelegate.swift; sourceTree = "<group>"; };
 		D0EBCBF91C0FD94800A0787B /* WechatRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatRoute.swift; sourceTree = "<group>"; };
 		D0EBCC031C104A6000A0787B /* WechatAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatAuth.swift; sourceTree = "<group>"; };
-		D0EBCC051C104A7E00A0787B /* WechatManagerAuthDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatManagerAuthDelegate.swift; sourceTree = "<group>"; };
 		D0EBCC071C104B0C00A0787B /* WechatShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatShare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +123,6 @@
 		D088F9EB1C184F1F004EC3D6 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				D0EBCC051C104A7E00A0787B /* WechatManagerAuthDelegate.swift */,
 				D0EBCC031C104A6000A0787B /* WechatAuth.swift */,
 			);
 			name = Auth;
@@ -221,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0EBCC061C104A7E00A0787B /* WechatManagerAuthDelegate.swift in Sources */,
 				D0EBCC081C104B0C00A0787B /* WechatShare.swift in Sources */,
 				D07214121C0EE993009E0DEA /* WechatManager.swift in Sources */,
 				D088F9AF1C180DB6004EC3D6 /* WechatManagerShareDelegate.swift in Sources */,

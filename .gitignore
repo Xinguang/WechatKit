@@ -171,3 +171,5 @@ xcuserdata
 Carthage/Checkouts
 demo/Carthage/Checkouts
 demo/Pods
+
+demo/Podfile.lock
