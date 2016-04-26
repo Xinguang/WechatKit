@@ -12,10 +12,9 @@
 public protocol WechatManagerShareDelegate {
     /**
     APP分享时, 点击分享内容返回到App是调用
-    
+
     - parameter message: ShowMessageFromWXReq.message.messageExt
     */
     func showMessage(message: String)
-    
-}
 
+}

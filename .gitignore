@@ -173,3 +173,7 @@ demo/Carthage/Checkouts
 demo/Pods
 
 demo/Podfile.lock
+
+Cartfile.resolved
+
+WechatKit.framework.zip

@@ -1,0 +1,7 @@
+included:
+  - WechatKit
+opt_in_rules:
+  - empty_count
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - WechatKit/Result.swift

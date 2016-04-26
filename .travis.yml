@@ -7,6 +7,7 @@ xcode_scheme: WechatKit
 before_install:
 #  - brew upgrade carthage
 #  - brew update
+  - brew install swiftlint
 #  - brew install carthage
 #  - gem install cocoapods
 install: carthage bootstrap --platform ios

@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/starboychina/WechatKit.svg)](https://travis-ci.org/starboychina/WechatKit)
 [![Swift version](https://img.shields.io/badge/swift-2.2-orange.svg)](https://developer.apple.com/swift/)
+[![SwiftLint](https://img.shields.io/badge/SwiftLint-passing-brightgreen.svg)](https://github.com/realm/SwiftLint)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-Compatible-4BC51D.svg?style=flat)](https://cocoapods.org/pods/WechatKit)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://tldrlegal.com/license/mit-license)
