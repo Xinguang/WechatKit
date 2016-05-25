@@ -35,6 +35,7 @@ github "starboychina/WechatKit"
 - IOS9以后 需要添加weixin到白名单(如图)
 
     或以源代码方式打开info.plist, 并添加以下内容.
+    
 ```xml
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
@@ -62,17 +63,20 @@ github "starboychina/WechatKit"
 
 ##Usage
 - 注册app
+
 ```swift
   WechatManager.appid = "微信开放平台,注册的应用程序id"
   WechatManager.appSecret = "微信开放平台,注册的应用程序Secret"
 ```
 - 检测微信是否安装
+
 ```swift
   WechatManager.sharedInstance.isInstalled()
 ```
 - 使用微信登录
 
     默认会记住openid,以及access_token,在token还在有效期时,调用checkAuth则不会打开微信客户端,直接使用token和微信服务器获取认证信息
+
 ```swift
     WechatManager.sharedInstance.checkAuth { result in
         switch result {
@@ -84,6 +88,7 @@ github "starboychina/WechatKit"
     }
 ```
 - 获取微信用户信息
+
 ```swift
   WechatManager.sharedInstance.getUserInfo { result in
       switch result {
@@ -97,6 +102,7 @@ github "starboychina/WechatKit"
 - 退出登录
 
     由于默认会记住openid,以及access_token,如需要切换用户则需要退出登录.
+
 ```swift
 WechatManager.sharedInstance.logout()
 ```
