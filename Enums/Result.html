@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Result Enum Reference</title>
+    <link rel='stylesheet' type='text/css' href='../css/jazzy.css' />
+    <link rel='stylesheet' type='text/css' href='../css/highlight.css' />
+    <meta charset='utf-8'>
+    <script src='../js/jquery.min.js' defer></script>
+    <script src='../js/jazzy.js' defer></script>
+  </head>
+  <body>
+
+    <a name='//apple_ref/swift/Enum/Result' class='dashAnchor'></a>
+
+    <a title='Result Enum Reference'></a>
+
+    <header class='header'>
+      <p class='header-col header-col--primary'>
+        <a class='header-link' href='../index.html'>
+          WechatKit Docs
+        </a>
+         (94% documented)
+      </p>
+    
+        <p class='header-col header-col--secondary'>
+          <a class='header-link' href='https://github.com/starboychina/WechatKit'>
+            <img class='header-icon' src='../img/gh.png'/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class='header-col header-col--secondary'>
+          <a class='header-link' href='dash-feed://http%3A%2F%2Fstarboychina%2Egithub%2Eio%2Fdocsets%2FWechatKit%2Exml'>
+            <img class='header-icon' src='../img/dash.png'/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class='breadcrumbs'>
+      <a class='breadcrumb' href='../index.html'>WechatKit Reference</a>
+      <img class='carat' src='../img/carat.png' />
+      Result Enum Reference
+    </p>
+
+    <div class='content-wrapper'>
+      <nav class='navigation'>
+        <ul class='nav-groups'>
+          <li class='nav-group-name'>
+            <a class='nav-group-name-link' href='../Classes.html'>Classes</a>
+            <ul class='nav-group-tasks'>
+              <li class='nav-group-task'>
+                <a class='nav-group-task-link' href='../Classes/WechatManager.html'>WechatManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class='nav-group-name'>
+            <a class='nav-group-name-link' href='../Enums.html'>Enums</a>
+            <ul class='nav-group-tasks'>
+              <li class='nav-group-task'>
+                <a class='nav-group-task-link' href='../Enums/Result.html'>Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class='nav-group-name'>
+            <a class='nav-group-name-link' href='../Protocols.html'>Protocols</a>
+            <ul class='nav-group-tasks'>
+              <li class='nav-group-task'>
+                <a class='nav-group-task-link' href='../Protocols/WechatManagerShareDelegate.html'>WechatManagerShareDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class='main-content'>
+
+        <section class='section'>
+          <div class='section-content'>
+            <h1>Result</h1>
+              <div class='declaration'>
+                <div class='language'>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Used to represent whether a request was successful or encountered an error.</p>
+
+<ul>
+<li>Success: The request and all post processing operations were successful resulting in the serialization of the
+provided associated value.</li>
+<li>Failure: The request encountered an error resulting in a failure. The associated values are the original data
+provided by the server as well as the error that caused the failure.</li>
+</ul>
+
+          </div>
+        </section>
+
+        <section class='section'>
+          <div class='section-content'>
+            <div class="task-group">
+              <ul class='item-container'>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO9WechatKit6Result7Successu0_rFMGS0_xq__FxGS0_xq__"></a>
+                    <a name="//apple_ref/swift/Element/Success" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO9WechatKit6Result7Successu0_rFMGS0_xq__FxGS0_xq__">Success</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L0">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class='item-container'>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO9WechatKit6Result7Failureu0_rFMGS0_xq__Fq_GS0_xq__"></a>
+                    <a name="//apple_ref/swift/Element/Failure" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO9WechatKit6Result7Failureu0_rFMGS0_xq__Fq_GS0_xq__">Failure</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L0">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class='item-container'>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO9WechatKit6Result9isSuccessSb"></a>
+                    <a name="//apple_ref/swift/Property/isSuccess" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO9WechatKit6Result9isSuccessSb">isSuccess</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns <code>true</code> if the result is a success, <code>false</code> otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isSuccess</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L38-L45">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO9WechatKit6Result9isFailureSb"></a>
+                    <a name="//apple_ref/swift/Property/isFailure" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO9WechatKit6Result9isFailureSb">isFailure</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns <code>true</code> if the result is a failure, <code>false</code> otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isFailure</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L48-L50">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO9WechatKit6Result5valueGSqx_"></a>
+                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO9WechatKit6Result5valueGSqx_">value</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the associated value if the result is a success, <code>nil</code> otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Value</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L53-L60">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO9WechatKit6Result5errorGSqq__"></a>
+                    <a name="//apple_ref/swift/Property/error" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO9WechatKit6Result5errorGSqq__">error</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the associated error value if the result is a failure, <code>nil</code> otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L63-L70">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class='item-container'>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO9WechatKit6Result11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO9WechatKit6Result11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The textual representation used when written to an output stream, which includes whether the result was a
+success or failure.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L78-L85">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class='item-container'>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO9WechatKit6Result16debugDescriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/debugDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO9WechatKit6Result16debugDescriptionSS">debugDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The debug textual representation used when written to an output stream, which includes whether the result was a
+success or failure in addition to the value or error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">debugDescription</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L93-L100">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class='footer'>
+      <p>&copy; 2016 <a class="link" href="https://github.com/starboychina" target="_blank" rel="external">starboychina</a>. All rights reserved. (Last updated: 2016-05-25)</p>
+      <p>Generated by <a class='link' href='https://github.com/realm/jazzy' target='_blank' rel='external'>jazzy ♪♫ v0.6.0</a>, a <a class='link' href='http://realm.io' target='_blank' rel='external'>Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

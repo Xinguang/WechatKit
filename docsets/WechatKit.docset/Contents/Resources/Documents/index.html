@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>WechatKit  Reference</title>
+    <link rel='stylesheet' type='text/css' href='css/jazzy.css' />
+    <link rel='stylesheet' type='text/css' href='css/highlight.css' />
+    <meta charset='utf-8'>
+    <script src='js/jquery.min.js' defer></script>
+    <script src='js/jazzy.js' defer></script>
+  </head>
+  <body>
+
+
+    <a title='WechatKit  Reference'></a>
+
+    <header class='header'>
+      <p class='header-col header-col--primary'>
+        <a class='header-link' href='index.html'>
+          WechatKit Docs
+        </a>
+         (94% documented)
+      </p>
+    
+        <p class='header-col header-col--secondary'>
+          <a class='header-link' href='https://github.com/starboychina/WechatKit'>
+            <img class='header-icon' src='img/gh.png'/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class='header-col header-col--secondary'>
+          <a class='header-link' href='dash-feed://http%3A%2F%2Fstarboychina%2Egithub%2Eio%2Fdocsets%2FWechatKit%2Exml'>
+            <img class='header-icon' src='img/dash.png'/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class='breadcrumbs'>
+      <a class='breadcrumb' href='index.html'>WechatKit Reference</a>
+      <img class='carat' src='img/carat.png' />
+      WechatKit  Reference
+    </p>
+
+    <div class='content-wrapper'>
+      <nav class='navigation'>
+        <ul class='nav-groups'>
+          <li class='nav-group-name'>
+            <a class='nav-group-name-link' href='Classes.html'>Classes</a>
+            <ul class='nav-group-tasks'>
+              <li class='nav-group-task'>
+                <a class='nav-group-task-link' href='Classes/WechatManager.html'>WechatManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class='nav-group-name'>
+            <a class='nav-group-name-link' href='Enums.html'>Enums</a>
+            <ul class='nav-group-tasks'>
+              <li class='nav-group-task'>
+                <a class='nav-group-task-link' href='Enums/Result.html'>Result</a>
+              </li>
+            </ul>
+          </li>
+          <li class='nav-group-name'>
+            <a class='nav-group-name-link' href='Protocols.html'>Protocols</a>
+            <ul class='nav-group-tasks'>
+              <li class='nav-group-task'>
+                <a class='nav-group-task-link' href='Protocols/WechatManagerShareDelegate.html'>WechatManagerShareDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class='main-content'>
+
+        <section class='section'>
+          <div class='section-content'>
+            
+            <a href='#wechatkit' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='wechatkit'>WechatKit</h1>
+
+<p><a href="https://travis-ci.org/starboychina/WechatKit"><img src="https://travis-ci.org/starboychina/WechatKit.svg" alt="Build Status"></a>
+<a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/swift-2.2-orange.svg" alt="Swift version"></a>
+<a href="https://github.com/realm/SwiftLint"><img src="https://img.shields.io/badge/SwiftLint-passing-brightgreen.svg" alt="SwiftLint"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<a href="https://cocoapods.org/pods/WechatKit"><img src="https://img.shields.io/badge/CocoaPods-Compatible-4BC51D.svg?style=flat" alt="CocoaPods Compatible"></a>
+<a href="https://tldrlegal.com/license/mit-license"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" alt="License MIT"></a>
+<a href="https://github.com/starboychina/WechatKit/releases"><img src="https://img.shields.io/github/release/starboychina/WechatKit.svg" alt="GitHub release"></a></p>
+
+<hr>
+<a href='#getting_started' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting_started'>Getting Started</h2>
+
+<ul>
+<li>CocoaPods</li>
+</ul>
+<pre class="highlight plaintext"><code>pod 'WechatKit'
+</code></pre>
+
+<ul>
+<li>Carthage</li>
+</ul>
+
+<p><a href="https://github.com/starboychina/WechatKit/blob/master/Carthage.md">安装Carthage</a></p>
+<pre class="highlight plaintext"><code>github "starboychina/WechatKit"
+</code></pre>
+<a href='#setting' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='setting'>Setting</h2>
+
+<ul>
+<li><p>设置URL scheme</p>
+
+<p>在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“info”标签栏的“URL type“添加“URL scheme”为你在微信开放平台,注册的应用程序id</p></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/starboychina/WechatKit/master/demo/setting.png" alt="Setting"></p>
+
+<ul>
+<li><p>IOS9以后 需要添加weixin到白名单(如图)</p>
+
+<p>或以源代码方式打开info.plist, 并添加以下内容.</p></li>
+</ul>
+<pre class="highlight xml"><code>    <span class="nt">&lt;key&gt;</span>LSApplicationQueriesSchemes<span class="nt">&lt;/key&gt;</span>
+    <span class="nt">&lt;array&gt;</span>
+        <span class="nt">&lt;string&gt;</span>wechat<span class="nt">&lt;/string&gt;</span>
+        <span class="nt">&lt;string&gt;</span>weixin<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;/array&gt;</span>
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/starboychina/WechatKit/master/demo/info.plist.png" alt="Setting"></p>
+
+<ul>
+<li><p>AppDelegate的handleOpenURL和openURL方法：</p>
+
+<p>在AppDelegate.swift中添加import WechatKit</p></li>
+</ul>
+<pre class="highlight swift"><code>    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">handleOpenURL</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="nf">application</span><span class="p">(</span><span class="n">application</span><span class="p">,</span> <span class="nv">openURL</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="nv">sourceApplication</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">annotation</span><span class="p">:</span> <span class="p">[])</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">openURL</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">NSURL</span><span class="p">,</span> <span class="nv">sourceApplication</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">annotation</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">handleOpenURL</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="c1">// 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL</span>
+        <span class="c1">// return WechatManager.sharedInstance.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.sharedInstance) ......</span>
+    <span class="p">}</span>
+</code></pre>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+
+<ul>
+<li>注册app</li>
+</ul>
+<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">appid</span> <span class="o">=</span> <span class="s">"微信开放平台,注册的应用程序id"</span>
+  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">appSecret</span> <span class="o">=</span> <span class="s">"微信开放平台,注册的应用程序Secret"</span>
+</code></pre>
+
+<ul>
+<li>检测微信是否安装</li>
+</ul>
+<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">isInstalled</span><span class="p">()</span>
+</code></pre>
+
+<ul>
+<li><p>使用微信登录</p>
+
+<p>默认会记住openid,以及access_token,在token还在有效期时,调用checkAuth则不会打开微信客户端,直接使用token和微信服务器获取认证信息</p></li>
+</ul>
+<pre class="highlight swift"><code>    <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">checkAuth</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+        <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">errCode</span><span class="p">):</span><span class="c1">//登录失败</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">errCode</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="kt">Success</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">):</span><span class="c1">//登录成功 value为([String: String]) 微信返回的openid access_token 以及 refresh_token</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+
+<ul>
+<li>获取微信用户信息</li>
+</ul>
+<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">getUserInfo</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+      <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="o">.</span><span class="kt">Failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">errCode</span><span class="p">):</span><span class="c1">//获取失败</span>
+          <span class="nf">print</span><span class="p">(</span><span class="n">errCode</span><span class="p">)</span>
+      <span class="k">case</span> <span class="o">.</span><span class="kt">Success</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">):</span><span class="c1">//获取成功 value为([String: String]) 微信用户基本信息</span>
+          <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre>
+
+<ul>
+<li><p>退出登录</p>
+
+<p>由于默认会记住openid,以及access_token,如需要切换用户则需要退出登录.</p></li>
+</ul>
+<pre class="highlight swift"><code><span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">logout</span><span class="p">()</span>
+</code></pre>
+
+<hr>
+
+<ul>
+<li>分享到微信</li>
+</ul>
+<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">shareDelegate</span> <span class="o">=</span> <span class="k">self</span>
+  <span class="o">/**</span>
+  <span class="n">分享</span>
+
+  <span class="o">-</span> <span class="n">parameter</span> <span class="nv">scence</span><span class="p">:</span>      <span class="n">请求发送场景</span>
+  <span class="o">-</span> <span class="n">parameter</span> <span class="nv">image</span><span class="p">:</span>       <span class="n">消息缩略图</span>
+  <span class="o">-</span> <span class="n">parameter</span> <span class="nv">title</span><span class="p">:</span>       <span class="n">标题</span>
+  <span class="o">-</span> <span class="n">parameter</span> <span class="nv">description</span><span class="p">:</span> <span class="n">描述内容</span>
+  <span class="o">-</span> <span class="n">parameter</span> <span class="nv">url</span><span class="p">:</span>         <span class="n">地址</span>
+  <span class="o">-</span> <span class="n">parameter</span> <span class="nv">extInfo</span><span class="p">:</span>     <span class="nf">app分享信息</span><span class="p">(</span><span class="n">点击分享内容返回程序时</span><span class="p">,</span><span class="n">会传给WechatManagerShareDelegate</span><span class="o">.</span><span class="nf">showMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+  <span class="o">*/</span>
+  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">share</span><span class="p">(</span><span class="nv">scence</span><span class="p">:</span> <span class="kt">WXScene</span><span class="p">,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">extInfo</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
+</code></pre>
+
+<ul>
+<li>Delegation</li>
+</ul>
+
+<p><a href="https://github.com/starboychina/WechatKit/blob/master/WechatKit/WechatManagerShareDelegate.swift">分享Delegation</a></p>
+<pre class="highlight swift"><code>    <span class="c1">//app分享后 点击分享返回时调用</span>
+    <span class="kd">func</span> <span class="nf">showMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+</code></pre>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class='footer'>
+      <p>&copy; 2016 <a class="link" href="https://github.com/starboychina" target="_blank" rel="external">starboychina</a>. All rights reserved. (Last updated: 2016-05-25)</p>
+      <p>Generated by <a class='link' href='https://github.com/realm/jazzy' target='_blank' rel='external'>jazzy ♪♫ v0.6.0</a>, a <a class='link' href='http://realm.io' target='_blank' rel='external'>Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

@@ -1,0 +1,8 @@
+
+swift_version: 2.2
+author: starboychina
+author_url: https://github.com/starboychina
+root_url: http://starboychina.github.io/WechatKit
+github_url: https://github.com/starboychina/WechatKit
+github_file_prefix: https://github.com/starboychina/WechatKit/tree/master
+theme: jazzy-theme
