@@ -1,5 +1,8 @@
 重要!
 
+SDK1.7.2
+1. 修复因CTTeleponyNetworkInfo引起的崩溃问题
+
 SDK1.7.1
 1. 支持兼容ipv6(提升稳定性)
 2. xCode Version 7.3.1 (7D1014) 编译

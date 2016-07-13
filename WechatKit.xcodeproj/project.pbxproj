@@ -31,7 +31,6 @@
 		D07213F31C0EE8ED009E0DEA /* WechatKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WechatKit.h; sourceTree = "<group>"; };
 		D07213F51C0EE8ED009E0DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D07213FC1C0EE8FA009E0DEA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		D07213FD1C0EE8FA009E0DEA /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		D07213FE1C0EE8FA009E0DEA /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		D07213FF1C0EE8FA009E0DEA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		D07214001C0EE8FA009E0DEA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				D07213FC1C0EE8FA009E0DEA /* libWeChatSDK.a */,
-				D07213FD1C0EE8FA009E0DEA /* read_me.txt */,
 				D07213FE1C0EE8FA009E0DEA /* WechatAuthSDK.h */,
 				D07213FF1C0EE8FA009E0DEA /* WXApi.h */,
 				D07214001C0EE8FA009E0DEA /* WXApiObject.h */,
