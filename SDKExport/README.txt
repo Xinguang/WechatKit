@@ -1,5 +1,9 @@
 重要!
 
+SDK1.7.3
+1. 增强稳定性，适配iOS10
+2. 修复小于32K的jpg格式缩略图设置失败的问题
+
 SDK1.7.2
 1. 修复因CTTeleponyNetworkInfo引起的崩溃问题
 
