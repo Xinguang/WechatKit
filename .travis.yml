@@ -15,11 +15,15 @@ before_install:
 #  - brew install swiftlint
 #  - brew install carthage
 #  - gem install cocoapods
-install:
 - |
-    if [ "$TEST_TYPE" = iOS ]; then
-      carthage bootstrap --platform ios --verbose
+    if [ "$TEST_TYPE" = PODLINT ]; then
+      gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
     fi
+install:
+# - |
+#     if [ "$TEST_TYPE" = iOS ]; then
+#       carthage bootstrap --platform ios --verbose
+#     fi
 
 script:
 - |
