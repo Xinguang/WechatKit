@@ -7,58 +7,57 @@
 //
 
 import Foundation
-import Alamofire
 
 /// WechatManager
-public class WechatManager: NSObject {
+open class WechatManager: NSObject {
     /// It use to store openid, access_token, refresh_token
-    private static let Defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate static let Defaults = UserDefaults.standard
 
     /// A closure used to receive and process request from Third-party
-    public typealias AuthHandle = (Result<[String: AnyObject], Int32>) -> ()
+    public typealias AuthHandle = (Result<[String: Any], Int32>) -> ()
 
     /// A closure used to receive and process request from Wechat
     var completionHandler: AuthHandle!
 
     /// 微信开放平台,注册的应用程序id
-    public static var appid: String! {
+    open static var appid: String! {
         didSet {
             WXApi.registerApp(appid)
         }
     }
     /// 微信开放平台,注册的应用程序Secret
-    public static var appSecret: String!
+    open static var appSecret: String!
     /// openid
-    public static var openid: String! {
+    open static var openid: String! {
         didSet {
-            Defaults.setObject(self.openid, forKey: "wechatkit_openid")
+            Defaults.set(self.openid, forKey: "wechatkit_openid")
             Defaults.synchronize()
         }
     }
     /// access token
-    public static var accessToken: String! {
+    open static var accessToken: String! {
         didSet {
-            Defaults.setObject(self.accessToken, forKey: "wechatkit_access_token")
+            Defaults.set(self.accessToken, forKey: "wechatkit_access_token")
             Defaults.synchronize()
         }
     }
     /// refresh token
-    public static var refreshToken: String! {
+    open static var refreshToken: String! {
         didSet {
-            Defaults.setObject(self.refreshToken, forKey: "wechatkit_refresh_token")
+            Defaults.set(self.refreshToken, forKey: "wechatkit_refresh_token")
             Defaults.synchronize()
         }
     }
     /// csrf
-    public static var csrfState = "73746172626f796368696e61"
+    open static var csrfState = "73746172626f796368696e61"
     /// 分享Delegation
-    public var shareDelegate: WechatManagerShareDelegate?
+    open var shareDelegate: WechatManagerShareDelegate?
     /// A shared instance
-    public static let sharedInstance: WechatManager = {
+    open static let sharedInstance: WechatManager = {
         let instalce = WechatManager()
-        openid = Defaults.stringForKey("wechatkit_openid")
-        accessToken = Defaults.stringForKey("wechatkit_access_token")
-        refreshToken = Defaults.stringForKey("wechatkit_refresh_token")
+        openid = Defaults.string(forKey: "wechatkit_openid")
+        accessToken = Defaults.string(forKey: "wechatkit_access_token")
+        refreshToken = Defaults.string(forKey: "wechatkit_refresh_token")
         return WechatManager()
     }()
 
@@ -67,7 +66,7 @@ public class WechatManager: NSObject {
 
      - returns: 微信已安装返回true，未安装返回false
      */
-    public func isInstalled() -> Bool {
+    open func isInstalled() -> Bool {
         return WXApi.isWXAppInstalled()
     }
 
@@ -80,8 +79,8 @@ public class WechatManager: NSObject {
 
      - returns: 成功返回true，失败返回false
      */
-    public func handleOpenURL(url: NSURL) -> Bool {
-        return WXApi.handleOpenURL(url, delegate: WechatManager.sharedInstance)
+    open func handleOpenURL(_ url: URL) -> Bool {
+        return WXApi.handleOpen(url, delegate: WechatManager.sharedInstance)
     }
 
 }
@@ -98,7 +97,7 @@ extension WechatManager: WXApiDelegate {
 
     - parameter req: 具体请求内容，是自动释放的
     */
-    public func onReq(req: BaseReq) {
+    public func onReq(_ req: BaseReq) {
         if let temp = req as? ShowMessageFromWXReq {
             self.shareDelegate?.showMessage(temp.message.messageExt)
         }
@@ -111,12 +110,12 @@ extension WechatManager: WXApiDelegate {
 
     - parameter resp: 具体的回应内容，是自动释放的
     */
-    public func onResp(resp: BaseResp) {
+    public func onResp(_ resp: BaseResp) {
         if let temp = resp as? SendAuthResp {
             if 0 == temp.errCode && WechatManager.csrfState == temp.state {
                 self.getAccessToken(temp.code)
             } else {
-                completionHandler(.Failure(WXErrCodeCommon.rawValue))
+                completionHandler(.failure(WXErrCodeCommon.rawValue))
             }
         }
     }

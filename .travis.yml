@@ -24,7 +24,7 @@ install:
 script:
 - |
     if [ "$TEST_TYPE" = iOS ]; then
-      xctool -scheme WechatKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+      xcodebuild -scheme WechatKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
     elif [ "$TEST_TYPE" = PODLINT ]; then
       pod lib lint --allow-warnings --verbose
     fi

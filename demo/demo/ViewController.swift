@@ -11,7 +11,7 @@ import WechatKit
 
 class ViewController: UIViewController {
 
-    let Defaults = NSUserDefaults.standardUserDefaults()
+    let Defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         self.setupWechatManager()
     }
 
-    @IBAction func getUserInfo(sender: AnyObject) {
+    @IBAction func getUserInfo(_ sender: AnyObject) {
         guard let openid = WechatManager.openid else {
             print("还没有登录")
             return
@@ -31,9 +31,9 @@ class ViewController: UIViewController {
         }
         WechatManager.sharedInstance.getUserInfo { result in
             switch result {
-            case .Failure(let errCode):
+            case .failure(let errCode):
                 print(errCode)
-            case .Success(let value):
+            case .success(let value):
                 print(value)
             }
         }
@@ -43,15 +43,15 @@ class ViewController: UIViewController {
      
      - parameter sender: sender description
      */
-    @IBAction func login(sender: AnyObject) {
+    @IBAction func login(_ sender: AnyObject) {
 //        WXApi.getApiVersion() //所有微信SDK都可以直接调用
         
         if WechatManager.sharedInstance.isInstalled() {
             WechatManager.sharedInstance.checkAuth { result in
                 switch result {
-                case .Failure(let errCode):
+                case .failure(let errCode):
                     print(errCode)
-                case .Success(let value):
+                case .success(let value):
                     print(value)
                 }
             }
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
      
      - parameter sender: sender description
      */
-    @IBAction func logout(sender: AnyObject) {
+    @IBAction func logout(_ sender: AnyObject) {
         WechatManager.sharedInstance.logout()
     }
     /**
@@ -72,13 +72,13 @@ class ViewController: UIViewController {
      
      - parameter sender: sender description
      */
-    @IBAction func share(sender: AnyObject) {
+    @IBAction func share(_ sender: AnyObject) {
         WechatManager.sharedInstance.share(WXSceneSession, image: nil, title: "test", description: "@WechatKit")
     }
     
 }
 extension ViewController {
-    private func setupWechatManager() {
+    fileprivate func setupWechatManager() {
         //设置appid
         WechatManager.appid = "wxd930ea5d5a258f4f"
         WechatManager.appSecret = ""//如果不设置 appSecret 则无法获取access_token 无法完成认证
@@ -91,7 +91,7 @@ extension ViewController {
 // MARK: - WechatManagerShareDelegate
 extension ViewController: WechatManagerShareDelegate {
     //app分享之后 点击分享内容自动回到app时调用 该方法
-    func showMessage(message: String) {
+    public func showMessage(_ message: String) {
         print(message)
     }
 }

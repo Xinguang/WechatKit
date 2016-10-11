@@ -15,6 +15,6 @@ public protocol WechatManagerShareDelegate {
 
     - parameter message: ShowMessageFromWXReq.message.messageExt
     */
-    func showMessage(message: String)
+    func showMessage(_ message: String)
 
 }

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "WechatKit"
-  s.version          = "0.1.5"
-  s.summary          = "一款快速实现微信第三方登录的框架(Swift版)"
+  s.version          = "0.2.0"
+  s.summary          = "一款快速实现微信第三方登录的框架(Swift3.0版)"
   s.homepage         = "https://github.com/starboychina/WechatKit"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "starboychina" => "wechatkit.github.com@kansea.com" }
@@ -16,5 +16,4 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'SystemConfiguration', 'CoreTelephony'
   s.libraries = 'z', 'c++', 'sqlite3.0'
-  s.dependency 'Alamofire', '~> 3.0'
 end

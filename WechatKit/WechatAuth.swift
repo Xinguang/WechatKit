@@ -13,16 +13,16 @@ extension WechatManager {
 
      - parameter completionHandler: 取得的token信息
      */
-    public func checkAuth(completionHandler: AuthHandle) {
+    public func checkAuth(_ completionHandler: @escaping AuthHandle) {
 
         if !WXApi.isWXAppInstalled() {
             // 微信没有安装
-            completionHandler(.Failure(WXErrCodeUnsupport.rawValue))
+            completionHandler(.failure(WXErrCodeUnsupport.rawValue))
         } else {
             self.completionHandler = completionHandler
             if let _ = WechatManager.openid,
-                _ = WechatManager.accessToken,
-                _ = WechatManager.refreshToken {
+                let _ = WechatManager.accessToken,
+                let _ = WechatManager.refreshToken {
                 self.checkToken()
             } else {
                 self.sendAuth()
@@ -33,18 +33,18 @@ extension WechatManager {
      获取微信用户基本信息
      - parameter completionHandler: 微信基本用户信息
      */
-    public func getUserInfo (completionHandler: AuthHandle) {
+    public func getUserInfo (_ completionHandler: @escaping AuthHandle) {
         self.completionHandler = completionHandler
 
-        AlamofireController.request(WechatRoute.Userinfo) { result in
+        AlamofireController.request(WechatRoute.userinfo) { result in
 
             if let err = result["errcode"] as? Int32 {
 //                let _ = result["errmsg"] as! String
-                completionHandler(.Failure(err))
+                completionHandler(.failure(err))
                 return
             }
 
-            self.completionHandler(.Success(result))
+            self.completionHandler(.success(result))
         }
     }
     /**
@@ -60,21 +60,21 @@ extension WechatManager {
 // MARK: - private
 extension WechatManager {
 
-    private func sendAuth() {
+    fileprivate func sendAuth() {
 
         let req = SendAuthReq()
         req.scope = "snsapi_userinfo"
         req.state = WechatManager.csrfState
 
-        WXApi.sendReq(req)
+        WXApi.send(req)
     }
 
-    private func checkToken() {
+    fileprivate func checkToken() {
 
-        AlamofireController.request(WechatRoute.CheckToken) { result in
+        AlamofireController.request(WechatRoute.checkToken) { result in
 
             if !result.keys.contains("errcode") {
-                self.completionHandler(.Success(result))
+                self.completionHandler(.success(result))
                 return
             }
 
@@ -82,13 +82,13 @@ extension WechatManager {
         }
     }
 
-    func getAccessToken(code: String) {
+    func getAccessToken(_ code: String) {
 
-        AlamofireController.request(WechatRoute.AccessToken(code)) { result in
+        AlamofireController.request(WechatRoute.accessToken(code)) { result in
 
             if let err = result["errcode"] as? Int32 {
 //                let _ = result["errmsg"] as! String
-                self.completionHandler(.Failure(err))
+                self.completionHandler(.failure(err))
                 return
             }
 
@@ -96,9 +96,9 @@ extension WechatManager {
         }
     }
 
-    private func refreshAccessToken() {
+    fileprivate func refreshAccessToken() {
 
-        AlamofireController.request(WechatRoute.RefreshToken) { result in
+        AlamofireController.request(WechatRoute.refreshToken) { result in
 
             if !result.keys.contains("errcode") {
                 self.saveOpenId(result)
@@ -108,11 +108,11 @@ extension WechatManager {
         }
     }
 
-    private func saveOpenId(info: Dictionary<String, AnyObject>) {
+    fileprivate func saveOpenId(_ info: Dictionary<String, Any>) {
         WechatManager.openid = info["openid"] as? String
         WechatManager.accessToken = info["access_token"] as? String
         WechatManager.refreshToken = info["refresh_token"] as? String
 
-        self.completionHandler(.Success(info))
+        self.completionHandler(.success(info))
     }
 }

@@ -21,7 +21,7 @@ extension WechatManager {
     - parameter extInfo:     app分享信息
      (点击分享内容返回程序时,会传给WechatManagerShareDelegate.showMessage(message: String)
     */
-    public func share(scence: WXScene,
+    public func share(_ scence: WXScene,
                       image: UIImage?,
                       title: String,
                       description: String,
@@ -40,7 +40,7 @@ extension WechatManager {
     }
 
     //share url
-    private func shareUrl(message: WXMediaMessage, url: String?) -> WXMediaMessage {
+    fileprivate func shareUrl(_ message: WXMediaMessage, url: String?) -> WXMediaMessage {
         message.mediaTagName = "WECHAT_TAG_JUMP_SHOWRANK"
 
         let ext = WXWebpageObject()
@@ -58,7 +58,7 @@ extension WechatManager {
 
      - returns: return value description
      */
-    private func shareApp(message: WXMediaMessage, url: String?, extInfo: String)
+    fileprivate func shareApp(_ message: WXMediaMessage, url: String?, extInfo: String)
         -> WXMediaMessage {
             message.messageExt = extInfo//"附加消息：Come from 現場TOMO" //返回到程序之后用
             message.mediaTagName = "WECHAT_TAG_JUMP_APP"
@@ -68,7 +68,7 @@ extension WechatManager {
             //        ext.extInfo = extInfo //返回到程序之后用
             ext.url = url;//分享到朋友圈时的链接地址
             let buffer: [UInt8] = [0x00, 0xff]
-            let data = NSData(bytes: buffer, length: buffer.count)
+            let data = Data(bytes: UnsafePointer<UInt8>(buffer), count: buffer.count)
             ext.fileData = data
 
             message.mediaObject = ext
@@ -77,7 +77,7 @@ extension WechatManager {
     }
 
     //get message
-    private func getRequestMesage(image: UIImage?, title: String, description: String)
+    fileprivate func getRequestMesage(_ image: UIImage?, title: String, description: String)
         -> WXMediaMessage {
 
             let message = WXMediaMessage()
@@ -87,8 +87,9 @@ extension WechatManager {
             if description.characters.count > 128 {
 
                 let startIndex = description.startIndex
-                let range = startIndex.advancedBy(0)..<startIndex.advancedBy(128)
-                message.description = description.substringWithRange(range)
+                let to = description.index(after: description.index(startIndex, offsetBy: 128))
+
+                message.description = description.substring(to: to)
             } else {
                 message.description = description
             }
@@ -106,8 +107,9 @@ extension WechatManager {
             if title.characters.count > 64 {
 
                 let startIndex = title.startIndex
-                let range = startIndex.advancedBy(0)..<startIndex.advancedBy(64)
-                message.title = title.substringWithRange(range)
+                let to = title.index(after: title.index(startIndex, offsetBy: 64))
+
+                message.title = title.substring(to: to)
             } else {
                 message.title = title
             }
@@ -115,24 +117,24 @@ extension WechatManager {
             return message
     }
 
-    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+    fileprivate func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
 
         let newHeight = image.size.height / image.size.width * newWidth
         UIGraphicsBeginImageContext( CGSize(width: newWidth, height: newHeight) )
-        image.drawInRect(CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return newImage
+        return newImage!
     }
 
     //send request
-    private func sendReq(message: WXMediaMessage, scence: WXScene) {
+    fileprivate func sendReq(_ message: WXMediaMessage, scence: WXScene) {
         let req = SendMessageToWXReq()
         req.bText = false
         req.message = message
         req.scene = Int32(scence.rawValue)
 
-        WXApi.sendReq(req)
+        WXApi.send(req)
     }
 }
