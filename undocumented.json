@@ -1,1 +1,19 @@
-{"warnings":[{"file":"/Users/starboychina/Github/lib/WechatKitDoc/WechatKit/WechatKit/Result.swift","line":34,"symbol":"Success","symbol_kind":"source.lang.swift.decl.enumelement","warning":"undocumented"},{"file":"/Users/starboychina/Github/lib/WechatKitDoc/WechatKit/WechatKit/Result.swift","line":35,"symbol":"Failure","symbol_kind":"source.lang.swift.decl.enumelement","warning":"undocumented"}],"source_directory":"/Users/starboychina/Github/lib/WechatKitDoc/WechatKit"}
+{
+  "warnings": [
+    {
+      "file": "/Users/starboychina/Github/lib/WechatKitDoc/WechatKit/WechatKit/Result.swift",
+      "line": 34,
+      "symbol": "Result.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/starboychina/Github/lib/WechatKitDoc/WechatKit/WechatKit/Result.swift",
+      "line": 35,
+      "symbol": "Result.failure",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/starboychina/Github/lib/WechatKitDoc/WechatKit"
+}
