@@ -23,6 +23,7 @@
 		D0EBCBFA1C0FD94800A0787B /* WechatRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCBF91C0FD94800A0787B /* WechatRoute.swift */; };
 		D0EBCC041C104A6000A0787B /* WechatAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCC031C104A6000A0787B /* WechatAuth.swift */; };
 		D0EBCC081C104B0C00A0787B /* WechatShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EBCC071C104B0C00A0787B /* WechatShare.swift */; };
+		D0EDCF871DC19C4A00F6EB5A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EDCF861DC19C4A00F6EB5A /* CFNetwork.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D0EBCBF91C0FD94800A0787B /* WechatRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatRoute.swift; sourceTree = "<group>"; };
 		D0EBCC031C104A6000A0787B /* WechatAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatAuth.swift; sourceTree = "<group>"; };
 		D0EBCC071C104B0C00A0787B /* WechatShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WechatShare.swift; sourceTree = "<group>"; };
+		D0EDCF861DC19C4A00F6EB5A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0EDCF871DC19C4A00F6EB5A /* CFNetwork.framework in Frameworks */,
 				D07214101C0EE96B009E0DEA /* libsqlite3.tbd in Frameworks */,
 				D072140E1C0EE963009E0DEA /* libc++.tbd in Frameworks */,
 				D072140C1C0EE95C009E0DEA /* libz.tbd in Frameworks */,
@@ -109,6 +112,7 @@
 		D07214061C0EE8FE009E0DEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0EDCF861DC19C4A00F6EB5A /* CFNetwork.framework */,
 				D072140F1C0EE96B009E0DEA /* libsqlite3.tbd */,
 				D072140D1C0EE963009E0DEA /* libc++.tbd */,
 				D072140B1C0EE95C009E0DEA /* libz.tbd */,
