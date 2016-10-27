@@ -1,5 +1,11 @@
 重要!
 
+SDK1.7.4
+1. 更新支持iOS启用 ATS(App Transport Security)
+2. 需要在工程中链接CFNetwork.framework
+3. 在工程配置中的”Other Linker Flags”中加入”-Objc -all_load”
+4. 此版本使用Xcode8编译
+
 SDK1.7.3
 1. 增强稳定性，适配iOS10
 2. 修复小于32K的jpg格式缩略图设置失败的问题
