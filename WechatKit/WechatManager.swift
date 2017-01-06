@@ -58,7 +58,7 @@ open class WechatManager: NSObject {
         openid = Defaults.string(forKey: "wechatkit_openid")
         accessToken = Defaults.string(forKey: "wechatkit_access_token")
         refreshToken = Defaults.string(forKey: "wechatkit_refresh_token")
-        return WechatManager()
+        return instalce
     }()
 
     /**

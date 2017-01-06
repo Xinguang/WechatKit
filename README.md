@@ -76,9 +76,9 @@ github "starboychina/WechatKit"
 ```swift
     WechatManager.sharedInstance.checkAuth { result in
         switch result {
-        case .Failure(let errCode)://登录失败
+        case .failure(let errCode)://登录失败
             print(errCode)
-        case .Success(let value)://登录成功 value为([String: String]) 微信返回的openid access_token 以及 refresh_token
+        case .success(let value)://登录成功 value为([String: String]) 微信返回的openid access_token 以及 refresh_token
             print(value)
         }
     }
@@ -88,9 +88,9 @@ github "starboychina/WechatKit"
 ```swift
   WechatManager.sharedInstance.getUserInfo { result in
       switch result {
-      case .Failure(let errCode)://获取失败
+      case .failure(let errCode)://获取失败
           print(errCode)
-      case .Success(let value)://获取成功 value为([String: String]) 微信用户基本信息
+      case .success(let value)://获取成功 value为([String: String]) 微信用户基本信息
           print(value)
       }
   }
