@@ -83,7 +83,7 @@ enum WechatRoute {
     /// - parameter value: The value of the query component.
     ///
     /// - returns: The percent-escaped, URL encoded query string components.
-    fileprivate func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
+    private func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
         var components: [(String, String)] = []
 
         if let dictionary = value as? [String: Any] {
@@ -119,7 +119,7 @@ enum WechatRoute {
     /// - parameter string: The string to be percent-escaped.
     ///
     /// - returns: The percent-escaped string.
-    fileprivate func escape(_ string: String) -> String {
+    private func escape(_ string: String) -> String {
         // does not include "?" or "/" due to RFC 3986 - Section 3.4
         let generalDelimitersToEncode = ":#[]@"
         let subDelimitersToEncode = "!$&'()*+,;="
@@ -131,7 +131,7 @@ enum WechatRoute {
         return string.addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? string
     }
 
-    fileprivate func query(_ parameters: [String: Any]) -> String {
+    private func query(_ parameters: [String: Any]) -> String {
         var components: [(String, String)] = []
 
         for key in parameters.keys.sorted(by: <) {
@@ -145,10 +145,10 @@ enum WechatRoute {
 
 class AlamofireController {
 
-    fileprivate static let session = URLSession.shared
+    private static let session = URLSession.shared
 
     class func request(_ route: WechatRoute,
-                       completion: @escaping (_ result: Dictionary<String, Any> )->() ) {
+                       completion: @escaping (_ result: [String: Any] )->() ) {
         let task = session.dataTask(with: route.request) {
             (data, response, error) in
 
@@ -166,7 +166,7 @@ class AlamofireController {
 
             let jsonObject = try? JSONSerialization.jsonObject(with: validData,
                                                                options: .allowFragments)
-            guard let json = jsonObject as? Dictionary<String, Any> else {
+            guard let json = jsonObject as? [String: Any] else {
                 WechatManager.sharedInstance.completionHandler?(.failure(Int32(500)))
                 return
             }

@@ -6,7 +6,6 @@
 //  Copyright © 2015年 starboychina. All rights reserved.
 //
 
-
 // MARK: Share
 
 extension WechatManager {

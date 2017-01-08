@@ -108,7 +108,7 @@ extension WechatManager {
         }
     }
 
-    fileprivate func saveOpenId(_ info: Dictionary<String, Any>) {
+    fileprivate func saveOpenId(_ info: [String: Any]) {
         WechatManager.openid = info["openid"] as? String
         WechatManager.accessToken = info["access_token"] as? String
         WechatManager.refreshToken = info["refresh_token"] as? String
