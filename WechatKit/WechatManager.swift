@@ -14,7 +14,7 @@ public class WechatManager: NSObject {
     fileprivate static let Defaults = UserDefaults.standard
 
     /// A closure used to receive and process request from Third-party
-    public typealias AuthHandle = (Result<[String: Any], Int32>) -> ()
+    public typealias AuthHandle = (Result<[String: Any], Int32>) -> Void
 
     /// A closure used to receive and process request from Wechat
     var completionHandler: AuthHandle!

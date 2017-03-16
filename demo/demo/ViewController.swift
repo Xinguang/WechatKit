@@ -46,17 +46,16 @@ class ViewController: UIViewController {
     @IBAction func login(_ sender: AnyObject) {
 //        WXApi.getApiVersion() //所有微信SDK都可以直接调用
         
-        if WechatManager.sharedInstance.isInstalled() {
-            WechatManager.sharedInstance.checkAuth { result in
-                switch result {
-                case .failure(let errCode):
-                    print(errCode)
-                case .success(let value):
-                    print(value)
-                }
+        if !WechatManager.sharedInstance.isInstalled() {
+            print("not install, it will open a webview")
+        }
+        WechatManager.sharedInstance.checkAuth { result in
+            switch result {
+            case .failure(let errCode):
+                print(errCode)
+            case .success(let value):
+                print(value)
             }
-        } else {
-            print("not install")
         }
     }
     /**

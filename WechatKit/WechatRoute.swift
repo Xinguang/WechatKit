@@ -148,9 +148,8 @@ class AlamofireController {
     private static let session = URLSession.shared
 
     class func request(_ route: WechatRoute,
-                       completion: @escaping (_ result: [String: Any] )->() ) {
-        let task = session.dataTask(with: route.request) {
-            (data, response, error) in
+                       completion: @escaping (_ result: [String: Any] ) -> Void ) {
+        let task = session.dataTask(with: route.request) { (data, response, error) in
 
             guard error == nil else { return }
 

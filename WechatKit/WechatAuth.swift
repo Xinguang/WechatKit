@@ -14,19 +14,13 @@ extension WechatManager {
      - parameter completionHandler: 取得的token信息
      */
     public func checkAuth(_ completionHandler: @escaping AuthHandle) {
-
-        if !WXApi.isWXAppInstalled() {
-            // 微信没有安装
-            completionHandler(.failure(WXErrCodeUnsupport.rawValue))
+        self.completionHandler = completionHandler
+        if let _ = WechatManager.openid,
+            let _ = WechatManager.accessToken,
+            let _ = WechatManager.refreshToken {
+            self.checkToken()
         } else {
-            self.completionHandler = completionHandler
-            if let _ = WechatManager.openid,
-                let _ = WechatManager.accessToken,
-                let _ = WechatManager.refreshToken {
-                self.checkToken()
-            } else {
-                self.sendAuth()
-            }
+            self.sendAuth()
         }
     }
     /**
@@ -66,7 +60,30 @@ extension WechatManager {
         req.scope = "snsapi_userinfo"
         req.state = WechatManager.csrfState
 
-        WXApi.send(req)
+        if !WXApi.isWXAppInstalled() {
+            // 微信没有安装 通过短信方式认证(需要弹出一个 webview)
+            WXApi.sendAuthReq(req, viewController: topViewController(), delegate: WechatManager.sharedInstance)
+        } else {
+            WXApi.send(req)
+        }
+    }
+
+    private func topViewController(base: UIViewController? = nil) -> UIViewController? {
+        if base == nil {
+            return topViewController(base: UIApplication.shared.keyWindow?.rootViewController)
+        }
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
     }
 
     fileprivate func checkToken() {

@@ -83,6 +83,17 @@ github "starboychina/WechatKit"
         }
     }
 ```
+- [**注意**]
+
+    - **如果没有安装微信客户端,则会弹出 webview, 通过输入已绑定微信的手机号, 来接收认证短信, 然后在手机浏览器中,
+    打开认证短信中的地址 (类似于:wxd930ea5d5a258f4f://wapoauth?m=KzgxNzAxMzExMTY2Ng%3D%3D&t=xxxx xxxx为4位数字), 会自动跳回你的 APP, 并且实现登录功能.**
+
+    - **如果是 iPad 则不支持短信认证, 建议在 iPad 上接入微信登录时，先检测用户手机是否已安装微信客户端（使用WechatManager.sharedInstance.isInstalled()函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式（比如手机号注册登录、游客登录等）。**
+
+  ![iphone](https://raw.githubusercontent.com/starboychina/WechatKit/master/demo/iphone.png)
+
+  ![ipad](https://raw.githubusercontent.com/starboychina/WechatKit/master/demo/ipad.png)
+
 - 获取微信用户信息
 
 ```swift

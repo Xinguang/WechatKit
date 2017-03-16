@@ -9,7 +9,7 @@
 /**
 *  share
 */
-public protocol WechatManagerShareDelegate {
+public protocol WechatManagerShareDelegate: class {
     /**
     APP分享时, 点击分享内容返回到App是调用
 
