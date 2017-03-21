@@ -1,4 +1,4 @@
-#WechatKit
+# WechatKit
 
 [![Build Status](https://travis-ci.org/starboychina/WechatKit.svg)](https://travis-ci.org/starboychina/WechatKit)
 [![Swift version](https://img.shields.io/badge/swift-3.0-orange.svg)](https://developer.apple.com/swift/)
@@ -9,7 +9,7 @@
 [![GitHub release](https://img.shields.io/github/release/starboychina/WechatKit.svg)](https://github.com/starboychina/WechatKit/releases)
 
 ---
-##Getting Started
+## Getting Started
 - CocoaPods
 
 ```ogdl
@@ -24,7 +24,7 @@ pod 'WechatKit'
 github "starboychina/WechatKit"
 ```
 
-##Setting
+## Setting
 
 - 设置URL scheme
 
@@ -57,7 +57,7 @@ github "starboychina/WechatKit"
     }
 ```
 
-##Usage
+## Usage
 - 注册app
 
 ```swift
