@@ -134,7 +134,7 @@
 <pre class="highlight swift"><code>    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">open</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">sourceApplication</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">annotation</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
         <span class="k">return</span> <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">handleOpenURL</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="c1">// 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL</span>
-        <span class="c1">// return WechatManager.sharedInstance.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.sharedInstance) ......</span>
+        <span class="c1">// return WechatManager.shared.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.shared) ......</span>
     <span class="p">}</span>
 </code></pre>
 <a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
@@ -149,7 +149,7 @@
 <ul>
 <li>检测微信是否安装</li>
 </ul>
-<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">isInstalled</span><span class="p">()</span>
+<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">isInstalled</span><span class="p">()</span>
 </code></pre>
 
 <ul>
@@ -157,11 +157,11 @@
 
 <p>默认会记住openid,以及access_token,在token还在有效期时,调用checkAuth则不会打开微信客户端,直接使用token和微信服务器获取认证信息</p></li>
 </ul>
-<pre class="highlight swift"><code>    <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">checkAuth</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+<pre class="highlight swift"><code>    <span class="kt">WechatManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">checkAuth</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
         <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
         <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">errCode</span><span class="p">):</span><span class="c1">//登录失败</span>
             <span class="nf">print</span><span class="p">(</span><span class="n">errCode</span><span class="p">)</span>
-        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">):</span><span class="c1">//登录成功 value为([String: String]) 微信返回的openid access_token 以及 refresh_token</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">):</span><span class="c1">//登录成功 value为([String: String]) 从微信返回的openid access_token 以及 refresh_token</span>
             <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -171,9 +171,9 @@
 <li><p>[<strong>注意</strong>]</p>
 
 <ul>
-<li><strong>如果没有安装微信客户端,则会弹出 webview, 通过输入已绑定微信的手机号, 来接收认证短信, 然后在手机浏览器中,
-打开认证短信中的地址 (类似于:wxd930ea5d5a258f4f://wapoauth?m=KzgxNzAxMzExMTY2Ng%3D%3D&amp;t=xxxx xxxx为4位数字), 会自动跳回你的 APP, 并且实现登录功能.</strong></li>
-<li><strong>如果是 iPad 则不支持短信认证, 建议在 iPad 上接入微信登录时，先检测用户手机是否已安装微信客户端（使用WechatManager.sharedInstance.isInstalled()函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式（比如手机号注册登录、游客登录等）。</strong></li>
+<li><em>如果没有安装微信客户端,则会弹出 webview, 通过输入已绑定微信的手机号, 来接收认证短信, 然后在手机浏览器中,
+打开认证短信中的地址 (类似于:wxd930ea5d5a258f4f://wapoauth?m=KzgxNzAxMzExMTY2Ng%3D%3D&amp;t=xxxx xxxx为4位数字), 会自动跳回你的 APP, 并且实现登录功能.</em></li>
+<li><em>如果是 iPad 则不支持短信认证, 建议在 iPad 上接入微信登录时，先检测用户手机是否已安装微信客户端（使用WechatManager.sharedInstance.isInstalled()函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式（比如手机号注册登录、游客登录等）。</em></li>
 </ul></li>
 </ul>
 
@@ -184,7 +184,7 @@
 <ul>
 <li>获取微信用户信息</li>
 </ul>
-<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">getUserInfo</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">getUserInfo</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
       <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
       <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">errCode</span><span class="p">):</span><span class="c1">//获取失败</span>
           <span class="nf">print</span><span class="p">(</span><span class="n">errCode</span><span class="p">)</span>
@@ -199,7 +199,7 @@
 
 <p>由于默认会记住openid,以及access_token,如需要切换用户则需要退出登录.</p></li>
 </ul>
-<pre class="highlight swift"><code><span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">logout</span><span class="p">()</span>
+<pre class="highlight swift"><code><span class="kt">WechatManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">logout</span><span class="p">()</span>
 </code></pre>
 
 <hr>
@@ -237,7 +237,7 @@
       </article>
     </div>
     <section class='footer'>
-      <p>&copy; 2017 <a class="link" href="https://github.com/starboychina" target="_blank" rel="external">starboychina</a>. All rights reserved. (Last updated: 2017-03-16)</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/starboychina" target="_blank" rel="external">starboychina</a>. All rights reserved. (Last updated: 2017-03-27)</p>
       <p>Generated by <a class='link' href='https://github.com/realm/jazzy' target='_blank' rel='external'>jazzy ♪♫ v0.7.4</a>, a <a class='link' href='http://realm.io' target='_blank' rel='external'>Realm</a> project.</p>
     </section>
   </body>
