@@ -15,9 +15,9 @@ extension WechatManager {
      */
     public func checkAuth(_ completionHandler: @escaping AuthHandle) {
         self.completionHandler = completionHandler
-        if let _ = WechatManager.openid,
-            let _ = WechatManager.accessToken,
-            let _ = WechatManager.refreshToken {
+        if let _ = self.openid,
+            let _ = self.accessToken,
+            let _ = self.refreshToken {
             self.checkToken()
         } else {
             self.sendAuth()
@@ -45,9 +45,9 @@ extension WechatManager {
      退出
      */
     public func logout() {
-        WechatManager.openid = ""
-        WechatManager.accessToken = ""
-        WechatManager.refreshToken = ""
+        self.openid = ""
+        self.accessToken = ""
+        self.refreshToken = ""
     }
 }
 
@@ -63,7 +63,7 @@ extension WechatManager {
         if !WXApi.isWXAppInstalled() {
             // 微信没有安装 通过短信方式认证(需要弹出一个 webview)
             DispatchQueue.main.async {
-                WXApi.sendAuthReq(req, viewController: self.topViewController(), delegate: WechatManager.sharedInstance)
+                WXApi.sendAuthReq(req, viewController: self.topViewController(), delegate: WechatManager.shared)
             }
         } else {
             WXApi.send(req)
@@ -128,9 +128,9 @@ extension WechatManager {
     }
 
     fileprivate func saveOpenId(_ info: [String: Any]) {
-        WechatManager.openid = info["openid"] as? String
-        WechatManager.accessToken = info["access_token"] as? String
-        WechatManager.refreshToken = info["refresh_token"] as? String
+        self.openid = info["openid"] as? String
+        self.accessToken = info["access_token"] as? String
+        self.refreshToken = info["refresh_token"] as? String
 
         self.completionHandler(.success(info))
     }

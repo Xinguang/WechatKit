@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
-    
+
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return WechatManager.sharedInstance.handleOpenURL(url)
+        return WechatManager.shared.handleOpenURL(url)
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 /// WechatManager
 public class WechatManager: NSObject {
     /// It use to store openid, access_token, refresh_token
-    fileprivate static let Defaults = UserDefaults.standard
+    fileprivate let defaults = UserDefaults.standard
 
     /// A closure used to receive and process request from Third-party
     public typealias AuthHandle = (Result<[String: Any], Int32>) -> Void
@@ -28,24 +28,24 @@ public class WechatManager: NSObject {
     /// 微信开放平台,注册的应用程序Secret
     public static var appSecret: String!
     /// openid
-    public static var openid: String! {
+    public var openid: String! {
         didSet {
-            Defaults.set(self.openid, forKey: "wechatkit_openid")
-            Defaults.synchronize()
+            self.defaults.set(self.openid, forKey: "wechatkit_openid")
+            self.defaults.synchronize()
         }
     }
     /// access token
-    public static var accessToken: String! {
+    public var accessToken: String! {
         didSet {
-            Defaults.set(self.accessToken, forKey: "wechatkit_access_token")
-            Defaults.synchronize()
+            self.defaults.set(self.accessToken, forKey: "wechatkit_access_token")
+            self.defaults.synchronize()
         }
     }
     /// refresh token
-    public static var refreshToken: String! {
+    public var refreshToken: String! {
         didSet {
-            Defaults.set(self.refreshToken, forKey: "wechatkit_refresh_token")
-            Defaults.synchronize()
+            self.defaults.set(self.refreshToken, forKey: "wechatkit_refresh_token")
+            self.defaults.synchronize()
         }
     }
     /// csrf
@@ -53,11 +53,11 @@ public class WechatManager: NSObject {
     /// 分享Delegation
     public var shareDelegate: WechatManagerShareDelegate?
     /// A shared instance
-    public static let sharedInstance: WechatManager = {
+    public static let shared: WechatManager = {
         let instalce = WechatManager()
-        openid = Defaults.string(forKey: "wechatkit_openid")
-        accessToken = Defaults.string(forKey: "wechatkit_access_token")
-        refreshToken = Defaults.string(forKey: "wechatkit_refresh_token")
+        instalce.openid = instalce.defaults.string(forKey: "wechatkit_openid")
+        instalce.accessToken = instalce.defaults.string(forKey: "wechatkit_access_token")
+        instalce.refreshToken = instalce.defaults.string(forKey: "wechatkit_refresh_token")
         return instalce
     }()
 
@@ -80,7 +80,7 @@ public class WechatManager: NSObject {
      - returns: 成功返回true，失败返回false
      */
     public func handleOpenURL(_ url: URL) -> Bool {
-        return WXApi.handleOpen(url, delegate: WechatManager.sharedInstance)
+        return WXApi.handleOpen(url, delegate: WechatManager.shared)
     }
 
 }

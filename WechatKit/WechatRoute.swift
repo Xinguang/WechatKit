@@ -31,8 +31,8 @@ enum WechatRoute {
         switch self {
         case .userinfo:
             return [
-                "openid": WechatManager.openid ?? "",
-                "access_token": WechatManager.accessToken ?? ""
+                "openid": WechatManager.shared.openid ?? "",
+                "access_token": WechatManager.shared.accessToken ?? ""
             ]
         case .accessToken(let code):
             return [
@@ -44,13 +44,13 @@ enum WechatRoute {
         case .refreshToken:
             return [
                 "appid": WechatManager.appid,
-                "refresh_token": WechatManager.refreshToken ?? "",
+                "refresh_token": WechatManager.shared.refreshToken ?? "",
                 "grant_type": "refresh_token"
             ]
         case .checkToken:
             return [
-                "openid": WechatManager.openid ?? "",
-                "access_token": WechatManager.accessToken ?? ""
+                "openid": WechatManager.shared.openid ?? "",
+                "access_token": WechatManager.shared.accessToken ?? ""
             ]
         }
     }
@@ -154,19 +154,19 @@ class AlamofireController {
             guard error == nil else { return }
 
             guard response is HTTPURLResponse else {
-                WechatManager.sharedInstance.completionHandler?(.failure(Int32(400)))
+                WechatManager.shared.completionHandler?(.failure(Int32(400)))
                 return
             }
 
             guard let validData = data, !validData.isEmpty else {
-                WechatManager.sharedInstance.completionHandler?(.failure(Int32(204)))
+                WechatManager.shared.completionHandler?(.failure(Int32(204)))
                 return
             }
 
             let jsonObject = try? JSONSerialization.jsonObject(with: validData,
                                                                options: .allowFragments)
             guard let json = jsonObject as? [String: Any] else {
-                WechatManager.sharedInstance.completionHandler?(.failure(Int32(500)))
+                WechatManager.shared.completionHandler?(.failure(Int32(500)))
                 return
             }
             completion(json)
