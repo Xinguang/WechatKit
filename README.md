@@ -52,7 +52,7 @@ github "starboychina/WechatKit"
 
 ```swift
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return WechatManager.sharedInstance.handleOpenURL(url)
+        return WechatManager.shared.handleOpenURL(url)
         // 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL
         // return WechatManager.shared.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.shared) ......
     }
@@ -89,7 +89,7 @@ github "starboychina/WechatKit"
     - *如果没有安装微信客户端,则会弹出 webview, 通过输入已绑定微信的手机号, 来接收认证短信, 然后在手机浏览器中,
     打开认证短信中的地址 (类似于:wxd930ea5d5a258f4f://wapoauth?m=KzgxNzAxMzExMTY2Ng%3D%3D&t=xxxx xxxx为4位数字), 会自动跳回你的 APP, 并且实现登录功能.*
 
-    - *如果是 iPad 则不支持短信认证, 建议在 iPad 上接入微信登录时，先检测用户手机是否已安装微信客户端（使用WechatManager.sharedInstance.isInstalled()函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式（比如手机号注册登录、游客登录等）。*
+    - *如果是 iPad 则不支持短信认证, 建议在 iPad 上接入微信登录时，先检测用户手机是否已安装微信客户端（使用WechatManager.shared.isInstalled()函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式（比如手机号注册登录、游客登录等）。*
 
   ![iphone](https://raw.githubusercontent.com/starboychina/WechatKit/master/demo/iphone.png)
 
@@ -120,7 +120,7 @@ WechatManager.shared.logout()
 - 分享到微信
 
 ```swift
-  WechatManager.sharedInstance.shareDelegate = self
+  WechatManager.shared.shareDelegate = self
   /**
   分享
 
@@ -131,7 +131,7 @@ WechatManager.shared.logout()
   - parameter url:         地址
   - parameter extInfo:     app分享信息(点击分享内容返回程序时,会传给WechatManagerShareDelegate.showMessage(message: String)
   */
-  WechatManager.sharedInstance.share(scence: WXScene, image: UIImage?, title: String, description: String, url: String? = default, extInfo: String? = default)
+  WechatManager.shared.share(scence: WXScene, image: UIImage?, title: String, description: String, url: String? = default, extInfo: String? = default)
 ```
 
 - Delegation
