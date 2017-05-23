@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
-    <title>Classes  Reference</title>
+    <title>Other Enums  Reference</title>
     <link rel='stylesheet' type='text/css' href='css/jazzy.css' />
     <link rel='stylesheet' type='text/css' href='css/highlight.css' />
     <meta charset='utf-8'>
@@ -11,7 +11,7 @@
   <body>
 
 
-    <a title='Classes  Reference'></a>
+    <a title='Other Enums  Reference'></a>
 
     <header class='header'>
       <p class='header-col header-col--primary'>
@@ -39,33 +39,28 @@
     <p class='breadcrumbs'>
       <a class='breadcrumb' href='index.html'>WechatKit Reference</a>
       <img class='carat' src='img/carat.png' />
-      Classes  Reference
+      Other Enums  Reference
     </p>
 
     <div class='content-wrapper'>
       <nav class='navigation'>
         <ul class='nav-groups'>
           <li class='nav-group-name'>
-            <a class='nav-group-name-link' href='Classes.html'>Classes</a>
+            <a class='nav-group-name-link' href='WechatKit.html'>WechatKit</a>
             <ul class='nav-group-tasks'>
               <li class='nav-group-task'>
                 <a class='nav-group-task-link' href='Classes/WechatManager.html'>WechatManager</a>
               </li>
-            </ul>
-          </li>
-          <li class='nav-group-name'>
-            <a class='nav-group-name-link' href='Enums.html'>Enums</a>
-            <ul class='nav-group-tasks'>
               <li class='nav-group-task'>
-                <a class='nav-group-task-link' href='Enums/Result.html'>Result</a>
+                <a class='nav-group-task-link' href='Protocols/WechatManagerShareDelegate.html'>WechatManagerShareDelegate</a>
               </li>
             </ul>
           </li>
           <li class='nav-group-name'>
-            <a class='nav-group-name-link' href='Protocols.html'>Protocols</a>
+            <a class='nav-group-name-link' href='Other Enums.html'>Other Enums</a>
             <ul class='nav-group-tasks'>
               <li class='nav-group-task'>
-                <a class='nav-group-task-link' href='Protocols/WechatManagerShareDelegate.html'>WechatManagerShareDelegate</a>
+                <a class='nav-group-task-link' href='Enums/Result.html'>Result</a>
               </li>
             </ul>
           </li>
@@ -75,8 +70,8 @@
 
         <section class='section'>
           <div class='section-content'>
-            <h1>Classes</h1>
-            <p>The following classes are available globally.</p>
+            <h1>Other Enums</h1>
+            <p>The following enums are available globally.</p>
 
           </div>
         </section>
@@ -88,9 +83,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C9WechatKit13WechatManager"></a>
-                    <a name="//apple_ref/swift/Class/WechatManager" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C9WechatKit13WechatManager">WechatManager</a>
+                    <a name="/s:O9WechatKit6Result"></a>
+                    <a name="//apple_ref/swift/Enum/Result" class="dashAnchor"></a>
+                    <a class="token" href="#/s:O9WechatKit6Result">Result</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -98,20 +93,27 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>WechatManager</p>
+                        <p>Used to represent whether a request was successful or encountered an error.</p>
 
-                        <a href="Classes/WechatManager.html" class="slightly-smaller">See more</a>
+<ul>
+<li>Success: The request and all post processing operations were successful resulting in the serialization of the
+provided associated value.</li>
+<li>Failure: The request encountered an error resulting in a failure. The associated values are the original data
+provided by the server as well as the error that caused the failure.</li>
+</ul>
+
+                        <a href="Enums/Result.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">WechatManager</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/WechatManager.swift#L28-L100">Show on GitHub</a>
+                        <a href="https://github.com/starboychina/WechatKit/tree/master/WechatKit/Result.swift#L33-L75">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

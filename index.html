@@ -18,7 +18,7 @@
         <a class='header-link' href='index.html'>
           WechatKit Docs
         </a>
-         (94% documented)
+         (100% documented)
       </p>
     
         <p class='header-col header-col--secondary'>
@@ -76,7 +76,7 @@
         <section class='section'>
           <div class='section-content'>
             
-            <a href='#wechatkit' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='wechatkit'>WechatKit</h1>
+            <h1 id='wechatkit' class='heading'>WechatKit</h1>
 
 <p><a href="https://travis-ci.org/starboychina/WechatKit"><img src="https://travis-ci.org/starboychina/WechatKit.svg" alt="Build Status"></a>
 <a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/swift-3.0-orange.svg" alt="Swift version"></a>
@@ -88,7 +88,7 @@
 <a href="https://github.com/starboychina/WechatKit/releases"><img src="https://img.shields.io/github/release/starboychina/WechatKit.svg" alt="GitHub release"></a></p>
 
 <hr>
-<a href='#getting-started' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting-started'>Getting Started</h2>
+<h2 id='getting-started' class='heading'>Getting Started</h2>
 
 <ul>
 <li>CocoaPods</li>
@@ -103,7 +103,7 @@
 <p><a href="https://github.com/starboychina/WechatKit/blob/master/Carthage.md">安装Carthage</a></p>
 <pre class="highlight plaintext"><code>github "starboychina/WechatKit"
 </code></pre>
-<a href='#setting' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='setting'>Setting</h2>
+<h2 id='setting' class='heading'>Setting</h2>
 
 <ul>
 <li><p>设置URL scheme</p>
@@ -133,12 +133,12 @@
 <p>在AppDelegate.swift中添加import WechatKit</p></li>
 </ul>
 <pre class="highlight swift"><code>    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">open</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">sourceApplication</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">annotation</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">handleOpenURL</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kt">WechatManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">handleOpenURL</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="c1">// 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL</span>
         <span class="c1">// return WechatManager.shared.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.shared) ......</span>
     <span class="p">}</span>
 </code></pre>
-<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<h2 id='usage' class='heading'>Usage</h2>
 
 <ul>
 <li>注册app</li>
@@ -174,7 +174,7 @@
 <ul>
 <li><em>如果没有安装微信客户端,则会弹出 webview, 通过输入已绑定微信的手机号, 来接收认证短信, 然后在手机浏览器中,
 打开认证短信中的地址 (类似于:wxd930ea5d5a258f4f://wapoauth?m=KzgxNzAxMzExMTY2Ng%3D%3D&amp;t=xxxx xxxx为4位数字), 会自动跳回你的 APP, 并且实现登录功能.</em></li>
-<li><em>如果是 iPad 则不支持短信认证, 建议在 iPad 上接入微信登录时，先检测用户手机是否已安装微信客户端（使用WechatManager.sharedInstance.isInstalled()函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式（比如手机号注册登录、游客登录等）。</em></li>
+<li><em>如果是 iPad 则不支持短信认证, 建议在 iPad 上接入微信登录时，先检测用户手机是否已安装微信客户端（使用WechatManager.shared.isInstalled()函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式（比如手机号注册登录、游客登录等）。</em></li>
 </ul></li>
 </ul>
 
@@ -208,7 +208,7 @@
 <ul>
 <li>分享到微信</li>
 </ul>
-<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="n">shareDelegate</span> <span class="o">=</span> <span class="k">self</span>
+<pre class="highlight swift"><code>  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">shareDelegate</span> <span class="o">=</span> <span class="k">self</span>
   <span class="cm">/**
   分享
 
@@ -219,7 +219,7 @@
   - parameter url:         地址
   - parameter extInfo:     app分享信息(点击分享内容返回程序时,会传给WechatManagerShareDelegate.showMessage(message: String)
   */</span>
-  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">sharedInstance</span><span class="o">.</span><span class="nf">share</span><span class="p">(</span><span class="nv">scence</span><span class="p">:</span> <span class="kt">WXScene</span><span class="p">,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">extInfo</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
+  <span class="kt">WechatManager</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">share</span><span class="p">(</span><span class="nv">scence</span><span class="p">:</span> <span class="kt">WXScene</span><span class="p">,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">extInfo</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span>
 </code></pre>
 
 <ul>
@@ -238,8 +238,8 @@
       </article>
     </div>
     <section class='footer'>
-      <p>&copy; 2017 <a class="link" href="https://github.com/starboychina" target="_blank" rel="external">starboychina</a>. All rights reserved. (Last updated: 2017-04-03)</p>
-      <p>Generated by <a class='link' href='https://github.com/realm/jazzy' target='_blank' rel='external'>jazzy ♪♫ v0.7.4</a>, a <a class='link' href='http://realm.io' target='_blank' rel='external'>Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://github.com/starboychina" target="_blank" rel="external">starboychina</a>. All rights reserved. (Last updated: 2017-05-23)</p>
+      <p>Generated by <a class='link' href='https://github.com/realm/jazzy' target='_blank' rel='external'>jazzy ♪♫ v0.8.2</a>, a <a class='link' href='http://realm.io' target='_blank' rel='external'>Realm</a> project.</p>
     </section>
   </body>
 </div>
