@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setupWechatManager()
     }
 
@@ -72,13 +72,28 @@ class ViewController: UIViewController {
     @IBAction func share(_ sender: AnyObject) {
         WechatManager.shared.share(WXSceneSession, image: nil, title: "test", description: "@WechatKit")
     }
-
+    
+    
+    /// 支付（参数从服务器端获得）
+    ///
+    /// - Parameter sender: sender description
+    @IBAction func pay(_ sender: UIButton) {
+        WechatManager.shared.pay(partnerId: "", prepayId: "", nonceStr: "", timeStamp: 0, package: "", sign: "") { (result) in
+            switch result {
+            case .success(_):
+                print("支付成功")
+                //do something
+            case .failure(let e):
+                print(e.description)
+            }
+        }
+    }
 }
 extension ViewController {
     fileprivate func setupWechatManager() {
         //设置appid
-        WechatManager.appid = "wxd930ea5d5a258f4f"
-        WechatManager.appSecret = ""//如果不设置 appSecret 则无法获取access_token 无法完成认证
+        WechatManager.appid = "wx57cd58cccccccccc"
+        WechatManager.appSecret = "00bb5c63f54ec568cccccccccccccccc"//如果不设置 appSecret 则无法获取access_token 无法完成认证
 
         //设置分享Delegation
         WechatManager.shared.shareDelegate = self

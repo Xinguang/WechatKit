@@ -50,9 +50,9 @@ public class WechatManager: NSObject {
     }
     /// csrf
     public static var csrfState = "73746172626f796368696e61"
-    /// 分享Delegation
+    /// 分享Delegation.
     public var shareDelegate: WechatManagerShareDelegate?
-    /// A shared instance
+    /// A shared instance.
     public static let shared: WechatManager = {
         let instalce = WechatManager()
         instalce.openid = instalce.defaults.string(forKey: "wechatkit_openid")
@@ -95,6 +95,7 @@ extension WechatManager: WXApiDelegate {
 
     - parameter req: 具体请求内容，是自动释放的
     */
+    
     public func onReq(_ req: BaseReq) {
         if let temp = req as? ShowMessageFromWXReq {
             self.shareDelegate?.showMessage(temp.message.messageExt)
@@ -114,6 +115,15 @@ extension WechatManager: WXApiDelegate {
                 self.getAccessToken(temp.code)
             } else {
                 completionHandler(.failure(WXErrCodeCommon.rawValue))
+            }
+        }
+        if let temp = resp as? PayResp {
+            switch temp.errCode {
+            case WXSuccess.rawValue:
+                completionHandler(.success(["returnKey": temp.returnKey]))
+            default:
+                completionHandler(.failure(temp.errCode))
+                break
             }
         }
     }
