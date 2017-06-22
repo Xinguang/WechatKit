@@ -6,9 +6,7 @@
 //  Copyright © 2015年 starboychina. All rights reserved.
 //
 
-/**
-*  share
-*/
+/// 分享 Delegate
 public protocol WechatManagerShareDelegate: class {
     /**
     APP分享时, 点击分享内容返回到App是调用

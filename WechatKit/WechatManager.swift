@@ -14,10 +14,10 @@ public class WechatManager: NSObject {
     fileprivate let defaults = UserDefaults.standard
 
     /// A closure used to receive and process request from Third-party
-    public typealias AuthHandle = (Result<[String: Any], Int32>) -> Void
+    public typealias Handle = (Result<[String: Any], Int32>) -> Void
 
     /// A closure used to receive and process request from Wechat
-    var completionHandler: AuthHandle!
+    var completionHandler: Handle!
 
     /// 微信开放平台,注册的应用程序id
     public static var appid: String! {
@@ -50,9 +50,9 @@ public class WechatManager: NSObject {
     }
     /// csrf
     public static var csrfState = "73746172626f796368696e61"
-    /// 分享Delegation.
+    /// 分享Delegation
     public var shareDelegate: WechatManagerShareDelegate?
-    /// A shared instance.
+    /// A shared instance
     public static let shared: WechatManager = {
         let instalce = WechatManager()
         instalce.openid = instalce.defaults.string(forKey: "wechatkit_openid")
@@ -61,11 +61,9 @@ public class WechatManager: NSObject {
         return instalce
     }()
 
-    /**
-     检查微信是否已被用户安装
-
-     - returns: 微信已安装返回true，未安装返回false
-     */
+    /// 检查微信是否已被用户安装
+    ///
+    /// - Returns: 微信已安装返回true，未安装返回false
     public func isInstalled() -> Bool {
         return WXApi.isWXAppInstalled()
     }
@@ -95,7 +93,7 @@ extension WechatManager: WXApiDelegate {
 
     - parameter req: 具体请求内容，是自动释放的
     */
-    
+
     public func onReq(_ req: BaseReq) {
         if let temp = req as? ShowMessageFromWXReq {
             self.shareDelegate?.showMessage(temp.message.messageExt)
@@ -115,15 +113,6 @@ extension WechatManager: WXApiDelegate {
                 self.getAccessToken(temp.code)
             } else {
                 completionHandler(.failure(WXErrCodeCommon.rawValue))
-            }
-        }
-        if let temp = resp as? PayResp {
-            switch temp.errCode {
-            case WXSuccess.rawValue:
-                completionHandler(.success(["returnKey": temp.returnKey]))
-            default:
-                completionHandler(.failure(temp.errCode))
-                break
             }
         }
     }

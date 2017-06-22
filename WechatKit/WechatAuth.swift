@@ -13,11 +13,11 @@ extension WechatManager {
 
      - parameter completionHandler: 取得的token信息
      */
-    public func checkAuth(_ completionHandler: @escaping AuthHandle) {
+    public func checkAuth(_ completionHandler: @escaping Handle) {
         self.completionHandler = completionHandler
-        if let _ = self.openid,
-            let _ = self.accessToken,
-            let _ = self.refreshToken {
+        if nil != self.openid &&
+            nil != self.accessToken &&
+            nil != self.refreshToken {
             self.checkToken()
         } else {
             self.sendAuth()
@@ -27,7 +27,7 @@ extension WechatManager {
      获取微信用户基本信息
      - parameter completionHandler: 微信基本用户信息
      */
-    public func getUserInfo (_ completionHandler: @escaping AuthHandle) {
+    public func getUserInfo (_ completionHandler: @escaping Handle) {
         self.completionHandler = completionHandler
 
         AlamofireController.request(WechatRoute.userinfo) { result in

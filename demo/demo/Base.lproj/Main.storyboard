@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pod" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,38 +19,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9y-Ka-5d2">
-                                <rect key="frame" x="172" y="268.5" width="31" height="30"/>
                                 <state key="normal" title="登录"/>
                                 <connections>
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zhz-mY-pUm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FH6-R6-FQK">
-                                <rect key="frame" x="172" y="318.5" width="31" height="30"/>
                                 <state key="normal" title="退出"/>
                                 <connections>
                                     <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KSh-g5-Euv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZ1-ge-hJi">
-                                <rect key="frame" x="141.5" y="368.5" width="92" height="30"/>
                                 <state key="normal" title="获取用户信息"/>
                                 <connections>
                                     <action selector="getUserInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DiF-Qi-GN9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOP-hi-LEs">
-                                <rect key="frame" x="172" y="418.5" width="31" height="30"/>
                                 <state key="normal" title="分享"/>
                                 <connections>
                                     <action selector="share:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FWU-Tp-F1t"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzX-pC-B95">
-                                <rect key="frame" x="172" y="468.5" width="31" height="30"/>
-                                <state key="normal" title="支付"/>
-                                <connections>
-                                    <action selector="pay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hyt-Z0-1v5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,10 +51,8 @@
                             <constraint firstItem="FH6-R6-FQK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n3y-7Z-jzF"/>
                             <constraint firstItem="FH6-R6-FQK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oux-Sw-Dx7"/>
                             <constraint firstItem="FH6-R6-FQK" firstAttribute="top" secondItem="D9y-Ka-5d2" secondAttribute="bottom" constant="20" id="pRr-8S-nyc"/>
-                            <constraint firstItem="vzX-pC-B95" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q4R-8B-8VB"/>
                             <constraint firstItem="D9y-Ka-5d2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qKL-ix-and"/>
                             <constraint firstItem="pZ1-ge-hJi" firstAttribute="top" secondItem="FH6-R6-FQK" secondAttribute="bottom" constant="20" id="tdn-Ib-9BW"/>
-                            <constraint firstItem="vzX-pC-B95" firstAttribute="top" secondItem="NOP-hi-LEs" secondAttribute="bottom" constant="20" id="vIX-yb-edT"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -6,20 +6,18 @@
 //  Copyright © 2015年 starboychina. All rights reserved.
 //
 
-// MARK: Share
-
+// MARK: - 分享
 extension WechatManager {
-    /**
-    分享
-
-    - parameter scence:      请求发送场景
-    - parameter image:       消息缩略图
-    - parameter title:       标题
-    - parameter description: 描述内容
-    - parameter url:         地址
-    - parameter extInfo:     app分享信息
-     (点击分享内容返回程序时,会传给WechatManagerShareDelegate.showMessage(message: String)
-    */
+    /// 分享
+    ///
+    /// - Parameters:
+    ///   - scence: 请求发送场景
+    ///   - image: 消息缩略图
+    ///   - title: 标题
+    ///   - description: 描述内容
+    ///   - url: 地址
+    ///   - extInfo: app分享信息
+    ///      (点击分享内容返回程序时,会传给WechatManagerShareDelegate.showMessage(message: String)
     public func share(_ scence: WXScene,
                       image: UIImage?,
                       title: String,
@@ -38,7 +36,12 @@ extension WechatManager {
         self.sendReq(message, scence: scence)
     }
 
-    //share url
+    /// 分享 Url
+    ///
+    /// - Parameters:
+    ///   - message: 多媒体消息结构体
+    ///   - url: 分享的 Url
+    /// - Returns: 多媒体消息结构体
     fileprivate func shareUrl(_ message: WXMediaMessage, url: String?) -> WXMediaMessage {
         message.mediaTagName = "WECHAT_TAG_JUMP_SHOWRANK"
 
@@ -48,15 +51,14 @@ extension WechatManager {
 
         return message
     }
-    /**
-     share app
 
-     - parameter message: message description
-     - parameter url:     url description
-     - parameter extInfo: extInfo description
-
-     - returns: return value description
-     */
+    /// 获取 app 分享的多媒体消息结构体
+    ///
+    /// - Parameters:
+    ///   - message: 多媒体消息结构体
+    ///   - url: 未安装 app 时打开的 Url
+    ///   - extInfo: app分享信息
+    /// - Returns: 多媒体消息结构体
     fileprivate func shareApp(_ message: WXMediaMessage, url: String?, extInfo: String)
         -> WXMediaMessage {
             message.messageExt = extInfo//"附加消息：Come from 現場TOMO" //返回到程序之后用
@@ -75,7 +77,14 @@ extension WechatManager {
             return message
     }
 
-    //get message
+    /// 获取多媒体消息结构体
+    /// 用于微信终端和第三方程序之间传递消息的多媒体消息内容
+    ///
+    /// - Parameters:
+    ///   - image: 需要分享的图片
+    ///   - title: 标题
+    ///   - description: 简介
+    /// - Returns: 多媒体消息结构体
     fileprivate func getRequestMesage(_ image: UIImage?, title: String, description: String)
         -> WXMediaMessage {
 
@@ -116,6 +125,12 @@ extension WechatManager {
             return message
     }
 
+    /// 重置图片大小
+    ///
+    /// - Parameters:
+    ///   - image: 图片
+    ///   - newWidth: 目标宽度
+    /// - Returns: 重置后的图片
     fileprivate func resizeImage(_ image: UIImage, newWidth: CGFloat) -> UIImage {
 
         let newHeight = image.size.height / image.size.width * newWidth
@@ -127,7 +142,12 @@ extension WechatManager {
         return newImage!
     }
 
-    //send request
+    /// 送请求到微信，等待微信返回onResp
+    /// 函数调用后，会切换到微信的界面。第三方应用程序等待微信返回onResp。微信在异步处理完成后一定会调用onResp。
+    ///
+    /// - Parameters:
+    ///   - message: <#message description#>
+    ///   - scence: <#scence description#>
     fileprivate func sendReq(_ message: WXMediaMessage, scence: WXScene) {
         let req = SendMessageToWXReq()
         req.bText = false

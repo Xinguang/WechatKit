@@ -31,7 +31,11 @@ import Foundation
  provided by the server as well as the error that caused the failure.
  */
 public enum Result<Value, Error> {
+    /// The request and all post processing operations were successful resulting in the serialization of the
+    /// provided associated value.
     case success(Value)
+    /// The request encountered an error resulting in a failure. The associated values are the original data
+    /// provided by the server as well as the error that caused the failure.
     case failure(Error)
     
     /// Returns `true` if the result is a success, `false` otherwise.
