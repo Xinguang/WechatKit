@@ -546,6 +546,27 @@ typedef NS_ENUM(UInt64, enAppSupportContentFlag)
 @property (nonatomic, strong) NSArray* cardAry;
 @end
 
+#pragma mark - WXSubscriptionReq
+@interface WXSubscribeMsgReq : BaseReq
+@property (nonatomic, assign) UInt32 scene;
+@property (nonatomic, strong) NSString * templateId;
+@property (nonatomic, strong) NSString * reserved;
+@end
+
+#pragma mark - WXSubscriptionReq
+@interface WXSubscribeMsgResp : BaseResp
+
+@property (nonatomic, strong) NSString *templateId;
+@property (nonatomic, assign) UInt32 scene;
+@property (nonatomic, strong) NSString *action;
+@property (nonatomic, strong) NSString * reserved;
+@property (nonatomic, strong) NSString * openId;
+
+@end
+
+#pragma mark - WXMediaMessage
+
+
 #pragma mark - WXMediaMessage
 
 /*! @brief 多媒体消息结构体
@@ -820,6 +841,7 @@ typedef NS_ENUM(UInt64, enAppSupportContentFlag)
 @property (nonatomic, strong) NSData *hdImageData;   // 小程序新版本的预览图 128k
 
 @end
+
 
 #pragma mark - WXTextObject
 /*! @brief 多媒体消息中包含的文本数据对象

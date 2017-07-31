@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "WechatKit"
-  s.version          = "0.3.2"
-  s.summary          = "一款快速实现微信第三方登录的框架(Swift3.0版) SDK1.7.8"
+  s.version          = "0.3.3"
+  s.summary          = "一款快速实现微信第三方登录的框架(Swift3.0版) SDK1.7.9"
   s.homepage         = "https://github.com/Xinguang/WechatKit"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Xinguang" => "wechatkit.github.com@kansea.com" }
