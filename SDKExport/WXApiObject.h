@@ -840,6 +840,34 @@ typedef NS_ENUM(UInt64, enAppSupportContentFlag)
 
 @property (nonatomic, strong) NSData *hdImageData;   // 小程序新版本的预览图 128k
 
+@property (nonatomic, assign) BOOL withShareTicket;   //是否使用带 shareTicket 的转发
+
+@end
+
+#pragma mark - WXLaunchMiniProgramReq
+
+/*! @brief WXLaunchMiniProgramReq对象, 可实现通过sdk拉起微信小程序
+ *
+ * @note 返回的WXLaunchMiniProgramReq对象是自动释放的
+ */
+@interface WXLaunchMiniProgramReq : BaseReq
+
++(WXLaunchMiniProgramReq *) object;
+
+@property (nonatomic, strong) NSString *userName;   //拉起的小程序的username
+@property (nonatomic, strong) NSString *path;       //拉起小程序页面的路径，不填默认拉起小程序首页
+
+@end
+
+#pragma mark - WXLaunchMiniProgramResp
+/*! @brief 微信终端向第三方程序返回的WXLaunchMiniProgramReq处理结果。
+ *
+ * 第三方程序向微信终端发送WXLaunchMiniProgramReq后，微信发送回来的处理结果，该结果用WXLaunchMiniProgramResp表示。
+ */
+@interface WXLaunchMiniProgramResp : BaseResp
+
+@property (nonatomic, retain) NSString *extMsg;
+
 @end
 
 

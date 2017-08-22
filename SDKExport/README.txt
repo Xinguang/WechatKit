@@ -1,4 +1,8 @@
 重要!
+SDK1.8.0
+1. SDK支持打开小程序
+2. SDK分享小程序支持shareTicket
+
 SDK1.7.9
 1. SDK订阅一次性消息
 
