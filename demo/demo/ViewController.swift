@@ -23,7 +23,7 @@ class ViewController: UIViewController {
             return
         }
 
-        guard openid.characters.count > 0 else {
+        guard openid.count > 0 else {
             print("还没有登录,或openid没有正确设置")
             return
         }

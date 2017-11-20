@@ -51,7 +51,7 @@ public class WechatManager: NSObject {
     /// csrf
     public static var csrfState = "73746172626f796368696e61"
     /// 分享Delegation
-    public var shareDelegate: WechatManagerShareDelegate?
+    public weak var shareDelegate: WechatManagerShareDelegate?
     /// A shared instance
     public static let shared: WechatManager = {
         let instalce = WechatManager()

@@ -92,12 +92,12 @@ extension WechatManager {
             /** 描述内容
              * @note 长度不能超过1K
              */
-            if description.characters.count > 128 {
+            if description.count > 128 {
 
                 let startIndex = description.startIndex
                 let to = description.index(after: description.index(startIndex, offsetBy: 128))
 
-                message.description = description.substring(to: to)
+                message.description = String(description[..<to])
             } else {
                 message.description = description
             }
@@ -112,12 +112,12 @@ extension WechatManager {
             /** 标题
              * @note 长度不能超过512字节
              */
-            if title.characters.count > 64 {
+            if title.count > 64 {
 
                 let startIndex = title.startIndex
                 let to = title.index(after: title.index(startIndex, offsetBy: 64))
 
-                message.title = title.substring(to: to)
+                message.title = String(title[..<to])
             } else {
                 message.title = title
             }
