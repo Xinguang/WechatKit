@@ -20,7 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
+    /// NS_DEPRECATED_IOS(4_2, 9_0, "Please use application:openURL:options:") __TVOS_PROHIBITED;
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return WechatManager.shared.handleOpenURL(url)
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return WechatManager.shared.handleOpenURL(url)
     }
 }

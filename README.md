@@ -1,7 +1,7 @@
 # WechatKit
 
 [![Build Status](https://travis-ci.org/Xinguang/WechatKit.svg)](https://travis-ci.org/Xinguang/WechatKit)
-[![Swift version](https://img.shields.io/badge/swift-3.0-orange.svg)](https://developer.apple.com/swift/)
+[![Swift version](https://img.shields.io/badge/swift-4.0-orange.svg)](https://developer.apple.com/swift/)
 [![Documentation](http://xinguang.github.io/WechatKit/badge.svg)](http://xinguang.github.io/WechatKit/)
 [![SwiftLint](https://img.shields.io/badge/SwiftLint-passing-brightgreen.svg)](https://github.com/realm/SwiftLint)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -51,7 +51,18 @@ github "starboychina/WechatKit"
     在AppDelegate.swift中添加import WechatKit
 
 ```swift
+    /// iOS 9 以后将弃用 请用下面的方法 #20
+    /// -> NS_DEPRECATED_IOS(4_2, 9_0, "Please use application:openURL:options:") __TVOS_PROHIBITED;
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return WechatManager.shared.handleOpenURL(url)
+        // 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL
+        // return WechatManager.shared.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.shared) ......
+    }
+```
+
+```swift
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return WechatManager.shared.handleOpenURL(url)
         // 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL
         // return WechatManager.shared.handleOpenURL(url) || TencentOAuth.HandleOpenURL(url) || WeiboSDK.handleOpenURL(url, delegate: SinaWeiboManager.shared) ......
