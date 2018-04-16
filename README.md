@@ -61,7 +61,8 @@ github "starboychina/WechatKit"
 ```
 
 ```swift
-    
+    /// iOS 9.0 以后请使用这个方法
+    /// Please use this (application:openURL:options:)
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return WechatManager.shared.handleOpenURL(url)
         // 如需要使用其他第三方可以 使用 || 连接 其他第三方库的handleOpenURL
