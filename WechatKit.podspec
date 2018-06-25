@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "WechatKit"
-  s.version          = "0.3.6"
+  s.version          = "0.4.0"
   s.summary          = "一款快速实现微信第三方登录的框架(Swift4.0版) SDK1.8.2"
   s.homepage         = "https://github.com/Xinguang/WechatKit"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '8.0'
   s.requires_arc     = true
 
-  s.source_files     = 'SDKExport/*.h',  'WechatKit/*'
+  s.source_files     = 'SDKExport/*.h',  'WechatKit/*.h',  'WechatKit/*.swift'
   s.vendored_libraries  = 'SDKExport/libWeChatSDK.a'
   s.public_header_files = 'WechatKit/*.h', 'SDKExport/*.h'
 
