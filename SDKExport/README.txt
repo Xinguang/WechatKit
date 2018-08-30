@@ -1,4 +1,9 @@
 重要!
+SDK1.8.3
+1. SDK增加调起微信刷卡支付接口
+2. SDK增加小程序订阅消息接口
+3. 修复小程序订阅消息接口没有resp的问题
+
 SDK1.8.2
 1. SDK增加开发票授权 WXInvoiceAuthInsert
 2. SDK增加非税接口   WXNontaxPay
