@@ -8,6 +8,7 @@
 [![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-Compatible-4BC51D.svg?style=flat)](https://cocoapods.org/pods/WechatKit)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://tldrlegal.com/license/mit-license)
 [![GitHub release](https://img.shields.io/github/release/starboychina/WechatKit.svg)](https://github.com/starboychina/WechatKit/releases)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FXinguang%2FWechatKit.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FXinguang%2FWechatKit?ref=badge_shield)
 
 ---
 ## Getting Started
@@ -154,3 +155,7 @@ WechatManager.shared.logout()
     //app分享后 点击分享返回时调用
     func showMessage(message: String)
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FXinguang%2FWechatKit.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FXinguang%2FWechatKit?ref=badge_large)
