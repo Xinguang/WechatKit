@@ -22,7 +22,7 @@ extension WechatManager {
                       image: UIImage?,
                       title: String,
                       description: String,
-                      url: String? = "https://open.weixin.qq.com/",
+                      url: String = "https://open.weixin.qq.com/",
                       extInfo: String? = nil) {
 
         var message = self.getRequestMesage(image, title: title, description: description)
@@ -42,7 +42,8 @@ extension WechatManager {
     ///   - message: 多媒体消息结构体
     ///   - url: 分享的 Url
     /// - Returns: 多媒体消息结构体
-    fileprivate func shareUrl(_ message: WXMediaMessage, url: String?) -> WXMediaMessage {
+    fileprivate func shareUrl(_ message: WXMediaMessage,
+                              url: String = "https://open.weixin.qq.com/") -> WXMediaMessage {
         message.mediaTagName = "WECHAT_TAG_JUMP_SHOWRANK"
 
         let ext = WXWebpageObject()
@@ -59,7 +60,7 @@ extension WechatManager {
     ///   - url: 未安装 app 时打开的 Url
     ///   - extInfo: app分享信息
     /// - Returns: 多媒体消息结构体
-    fileprivate func shareApp(_ message: WXMediaMessage, url: String?, extInfo: String)
+    fileprivate func shareApp(_ message: WXMediaMessage, url: String = "https://open.weixin.qq.com/", extInfo: String)
         -> WXMediaMessage {
             message.messageExt = extInfo//"附加消息：Come from 現場TOMO" //返回到程序之后用
             message.mediaTagName = "WECHAT_TAG_JUMP_APP"
@@ -95,17 +96,17 @@ extension WechatManager {
             if description.count > 128 {
 
                 let startIndex = description.startIndex
-                let to = description.index(after: description.index(startIndex, offsetBy: 128))
+                let end = description.index(after: description.index(startIndex, offsetBy: 128))
 
-                message.description = String(description[..<to])
+                message.description = String(description[..<end])
             } else {
                 message.description = description
             }
 
             /** 缩略图数据
-             * @note 大小不能超过32K
+             * @note 大小不能超过64K
              */
-            let thumbImage = image == nil ? UIImage() : self.resizeImage(image!, newWidth: 100)
+            let thumbImage = image == nil ? UIImage() : self.resizeImage(image!, newWidth: 144)
 
             message.setThumbImage(thumbImage)
 
@@ -115,9 +116,9 @@ extension WechatManager {
             if title.count > 64 {
 
                 let startIndex = title.startIndex
-                let to = title.index(after: title.index(startIndex, offsetBy: 64))
+                let end = title.index(after: title.index(startIndex, offsetBy: 64))
 
-                message.title = String(title[..<to])
+                message.title = String(title[..<end])
             } else {
                 message.title = title
             }

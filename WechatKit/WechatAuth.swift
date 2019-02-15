@@ -63,7 +63,7 @@ extension WechatManager {
         if !WXApi.isWXAppInstalled() {
             // 微信没有安装 通过短信方式认证(需要弹出一个 webview)
             DispatchQueue.main.async {
-                WXApi.sendAuthReq(req, viewController: self.topViewController(), delegate: WechatManager.shared)
+                WXApi.sendAuthReq(req, viewController: self.topViewController()!, delegate: WechatManager.shared)
             }
         } else {
             WXApi.send(req)

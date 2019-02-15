@@ -96,7 +96,7 @@ extension WechatManager: WXApiDelegate {
 
     public func onReq(_ req: BaseReq) {
         if let temp = req as? ShowMessageFromWXReq {
-            self.shareDelegate?.showMessage(temp.message.messageExt)
+            self.shareDelegate?.showMessage(temp.message.messageExt ?? "")
         }
     }
     /**
@@ -108,9 +108,13 @@ extension WechatManager: WXApiDelegate {
     - parameter resp: 具体的回应内容，是自动释放的
     */
     public func onResp(_ resp: BaseResp) {
+        if 0 != resp.errCode {
+            completionHandler(.failure(WXErrCodeCommon.rawValue))
+            return
+        }
         if let temp = resp as? SendAuthResp {
-            if 0 == temp.errCode && WechatManager.csrfState == temp.state {
-                self.getAccessToken(temp.code)
+            if let code = temp.code, WechatManager.csrfState == temp.state {
+                self.getAccessToken(code)
             } else {
                 completionHandler(.failure(WXErrCodeCommon.rawValue))
             }
