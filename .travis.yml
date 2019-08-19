@@ -8,16 +8,16 @@ env:
     - TEST_TYPE=iOS
     - TEST_TYPE=PODLINT
 
-before_install:
-#  - brew upgrade carthage
-#  - brew update
-#  - brew install swiftlint
-#  - brew install carthage
-#  - gem install cocoapods
-- |
-    if [ "$TEST_TYPE" = PODLINT ]; then
-      gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
-    fi
+# before_install:
+# #  - brew upgrade carthage
+# #  - brew update
+# #  - brew install swiftlint
+# #  - brew install carthage
+# #  - gem install cocoapods
+# - |
+#     if [ "$TEST_TYPE" = PODLINT ]; then
+#       gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+#     fi
 install:
 # - |
 #     if [ "$TEST_TYPE" = iOS ]; then
