@@ -1,7 +1,6 @@
 language: objective-c
 xcode_project: WechatKit.xcodeproj
-osx_image: xcode10
-xcode_sdk: iphonesimulator11.0
+osx_image: xcode11
 xcode_scheme: WechatKit
 
 env:
