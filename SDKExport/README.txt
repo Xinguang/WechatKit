@@ -1,4 +1,12 @@
 重要!
+
+SDK1.8.6.1
+1.短信授权登录使用的UIWebview切换成WKWebview
+
+SDK1.8.6
+1. 支持Universal Link拉起微信以及返回App
+2. SDK移除MTA库
+
 SDK1.8.5
 1. 更换MTA库:取消对剪切板的访问, 防止和其他SDK竞争导致crash
 2. NSMutableArray的MTA分类方法改名，减少命名冲突

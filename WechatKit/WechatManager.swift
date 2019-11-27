@@ -22,11 +22,23 @@ public class WechatManager: NSObject {
     /// 微信开放平台,注册的应用程序id
     public static var appid: String! {
         didSet {
-            WXApi.registerApp(appid)
+            if universalLink != nil {
+                WXApi.registerApp(appid, universalLink: universalLink)
+            }
         }
     }
     /// 微信开放平台,注册的应用程序Secret
     public static var appSecret: String!
+    
+    /// 微信开放平台,注册的应用程序universal link
+    public static var universalLink: String! {
+        didSet {
+            if appid != nil {
+                WXApi.registerApp(appid, universalLink: universalLink)
+            }
+        }
+    }
+    
     /// openid
     public var openid: String! {
         didSet {
@@ -79,6 +91,14 @@ public class WechatManager: NSObject {
      */
     public func handleOpenURL(_ url: URL) -> Bool {
         return WXApi.handleOpen(url, delegate: WechatManager.shared)
+    }
+    
+    /// 处理微信通过Universal Link启动App时传递的数据
+    /// 需要在 application:continueUserActivity:restorationHandler:中调用。
+    /// - Parameter userActivity: 微信启动第三方应用时系统API传递过来的userActivity
+    /// - returns: 成功返回true，失败返回false
+    public func handleOpenUniversalLink(userActivity: NSUserActivity) -> Bool {
+        return WXApi.handleOpenUniversalLink(userActivity, delegate: WechatManager.shared)
     }
 
 }
