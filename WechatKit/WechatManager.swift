@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WebKit
 
 /// WechatManager
 public class WechatManager: NSObject {
@@ -104,7 +105,6 @@ public class WechatManager: NSObject {
 }
 
 // MARK: WeiChatDelegate
-
 extension WechatManager: WXApiDelegate {
     /**
     收到一个来自微信的请求，第三方应用程序处理完后调用sendResp向微信发送结果
