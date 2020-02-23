@@ -30,7 +30,6 @@ $ carthage update --platform ios
 > 添加"Input Files"
 
 ```ogdl
-$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework
 $(SRCROOT)/Carthage/Build/iOS/WechatKit.framework
 ```
 - 在项目的Target -> Build Settings -> Framework Search Paths 輸入:

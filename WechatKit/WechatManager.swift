@@ -22,7 +22,17 @@ public class WechatManager: NSObject {
     /// 微信开放平台,注册的应用程序id
     public static var appid: String! {
         didSet {
-            WXApi.registerApp(appid)
+            if let universalLink = universalLink {
+                WXApi.registerApp(appid, universalLink: universalLink)
+            }
+        }
+    }
+    /// 微信开放平台,注册的应用程序所对应的 Universal Links
+    public static var universalLink: String! {
+        didSet {
+            if let appid = appid {
+                WXApi.registerApp(appid, universalLink: universalLink)
+            }
         }
     }
     /// 微信开放平台,注册的应用程序Secret
