@@ -1,3 +1,6 @@
+**接手的旧项目使用了该库的微信分享，fork只做了更新微信sdk。**  
+**登录的鉴权过程在客户端做，有风险，不推荐用来实现微信登录**
+
 # WechatKit
 
 [![Build Status](https://travis-ci.org/Xinguang/WechatKit.svg)](https://travis-ci.org/Xinguang/WechatKit)
